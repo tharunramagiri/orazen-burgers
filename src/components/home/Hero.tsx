@@ -42,7 +42,7 @@ export default function Hero() {
             className="-mt-[7vw] font-display text-[clamp(4rem,15vw,9rem)] leading-[0.75] tracking-wide text-mustard sm:-mt-[5vw] [-webkit-text-stroke:3px_var(--ink)]"
             style={{ paintOrder: "stroke fill" }}
           >
-            CRAV
+            ORAZEN
           </p>
         </Reveal>
 
@@ -54,7 +54,7 @@ export default function Hero() {
             </p>
 
             <span className="mx-auto flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-beige bg-red font-display text-sm tracking-wide text-white sm:h-20 sm:w-20 sm:text-base">
-              CRAV
+              ORAZEN
             </span>
 
             <p className="font-body text-sm leading-relaxed text-ink/80 sm:pl-6 sm:text-left sm:text-base">

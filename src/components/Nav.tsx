@@ -30,7 +30,7 @@ export default function Nav() {
           className="font-display text-3xl leading-none tracking-wide text-ink sm:text-4xl"
           onClick={() => setOpen(false)}
         >
-          CRAV
+          ORAZEN
         </Link>
 
         <div className="flex items-center gap-3 sm:gap-5">
