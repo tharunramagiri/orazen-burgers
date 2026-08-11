@@ -5,6 +5,8 @@ import Navbar from "@/components/Nav";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import LoadingScreen from "@/components/LoadingScreen";
+import ToastProvider from "@/components/Toast";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const modak = Modak({
   weight: "400",
@@ -40,11 +42,14 @@ export default function RootLayout({
     <html lang="en" className={`${modak.variable} ${mouseMemoirs.variable}`}>
       <body>
         <LoadingScreen />
-        <SmoothScroll>
-          <CustomCursor />
-          <Navbar />
-          <main>{children}</main>
-        </SmoothScroll>
+        <ToastProvider>
+          <SmoothScroll>
+            <CustomCursor />
+            <Navbar />
+            <main>{children}</main>
+            <ScrollToTop />
+          </SmoothScroll>
+        </ToastProvider>
       </body>
     </html>
   );

@@ -10,37 +10,23 @@
   --color-green: #60a905;
   --color-darkred: #4c0016;
   --color-orange: #ef6f2e;
+  --color-ink: #1b1b1b;
 
   --font-modak: var(--font-modak), "Modak", cursive;
   --font-mouse-memoirs: var(--font-mouse-memoirs), "Mouse Memoirs", sans-serif;
 }
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    -webkit-font-smoothing: antialiased;
-  }
-
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
   body {
     background-color: var(--color-beige);
-    color: var(--color-black);
+    color: var(--color-ink);
     font-family: var(--font-mouse-memoirs);
     overflow-x: hidden;
-    cursor: none;
   }
-
-  ::selection {
-    background: var(--color-red);
-    color: var(--color-beige);
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+  ::selection { background: var(--color-red); color: var(--color-beige); }
+  a { color: inherit; text-decoration: none; }
 }
 
 /* ---- Lenis ---- */
@@ -49,202 +35,131 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* ---- Typography helpers (matching live site) ---- */
+/* ---- Font helpers ---- */
 .font-modak { font-family: var(--font-modak); }
-.font-mouse-memoirs { font-family: var(--font-mouse-memoirs); }
+.font-mouse-memoirs, .font-body { font-family: var(--font-mouse-memoirs); }
 
-/* heading300: ~15vw, leading .75 — the giant Mouse Memoirs display headings */
-.heading300 {
-  font-family: var(--font-mouse-memoirs);
-  font-size: 15vw;
-  line-height: 0.75;
-}
+/* ---- Design tokens: heading scale ---- */
+.heading-hero { font-family: var(--font-mouse-memoirs); font-size: 30vw; line-height: 0.8; }
+.heading-xl { font-family: var(--font-mouse-memoirs); font-size: 15vw; line-height: 0.75; }
+.heading-lg { font-family: var(--font-mouse-memoirs); font-size: 8vw; line-height: 0.85; }
+.heading-md { font-family: var(--font-mouse-memoirs); font-size: 5vw; line-height: 0.9; }
+.heading-footer { font-family: var(--font-modak); font-size: 15vw; line-height: 0.5; }
 
+/* ---- Design tokens: body text ---- */
+.text-body { font-size: 1.8vw; line-height: 1.1; }
+.text-body-sm { font-size: 1.1vw; line-height: 1.15; }
+.text-body-xs { font-size: 0.85vw; line-height: 1.2; }
+.text-eyebrow { font-family: var(--font-modak); font-size: 2.6vw; line-height: 0.9; }
 
-/* heading600: ~25vw, leading .5 — the giant footer Modak heading */
-.heading600 {
-  font-family: var(--font-modak);
-  font-size: 25vw;
-  line-height: 0.5;
-}
-/* text60: ~2.6vw smaller display */
-.text60 {
-  font-size: 2.6vw;
-  line-height: 0.9;
-}
 @media (max-width: 768px) {
-  .text60 { font-size: 6vw; }
+  .heading-hero { font-size: 26vw; }
+  .heading-xl { font-size: 18vw; }
+  .heading-lg { font-size: 12vw; }
+  .heading-md { font-size: 10vw; }
+  .heading-footer { font-size: 30vw; }
+  .text-body { font-size: 4.2vw; }
+  .text-body-sm { font-size: 3.5vw; }
+  .text-body-xs { font-size: 3vw; }
+  .text-eyebrow { font-size: 6vw; }
 }
 
-/* text40: ~1.8vw body copy */
-.text40 {
-  font-size: 1.8vw;
-  line-height: 1.1;
-}
-@media (max-width: 768px) {
-  .text40 { font-size: 4.2vw; }
-}
-
-/* ---- Text stroke utilities (exact values from live site @1440) ----
-   Only set the stroke; the FILL comes from each element's own `color`
-   (red h1, mustard stickers, white "QUALITY" all share these classes). */
-.text-stroke-180 {
+/* ---- Text stroke tokens ---- */
+.text-stroke-lg {
   -webkit-text-stroke: 1vw var(--color-white);
-  paint-order: stroke;
+  paint-order: stroke fill;
 }
-.text-stroke-180-mustard {
-  -webkit-text-stroke: 1vw rgba(244, 168, 4, 0.3);
-  paint-order: stroke;
+.text-stroke-md {
+  -webkit-text-stroke: 0.5vw var(--color-white);
+  paint-order: stroke fill;
 }
-.text-stroke-small {
+.text-stroke-sm {
   -webkit-text-stroke: 0.34vw var(--color-white);
-  paint-order: stroke;
+  paint-order: stroke fill;
 }
-.text-stroke-smal {
+.text-stroke-xs {
   -webkit-text-stroke: 2px var(--color-white);
-  paint-order: stroke;
+  paint-order: stroke fill;
+}
+.text-stroke-mustard {
+  -webkit-text-stroke: 1vw rgba(244, 168, 4, 0.3);
+  paint-order: stroke fill;
 }
 
 /* ---- Animations ---- */
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .animate-spin-slow { animation: spin-slow 8s linear infinite; }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .animate-marquee { animation: marquee 22s linear infinite; }
 
-img { max-width: 100%; }
-
-/* ---- Extra animations (orazen.online) ---- */
 @keyframes float {
   0%, 100% { transform: translateY(0) rotate(var(--tilt, -6deg)); }
   50% { transform: translateY(-14px) rotate(var(--tilt, -6deg)); }
 }
 .animate-float { animation: float 6s ease-in-out infinite; }
 
-@keyframes juggle-lettuce {
-  0%, 100% { transform: translateY(0) rotate(-5deg); }
-  50% { transform: translateY(-20px) rotate(8deg); }
+@keyframes floatEmoji {
+  0% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); opacity: 0.7; }
+  25% { transform: translateY(-30px) translateX(15px) rotate(10deg) scale(1.1); opacity: 1; }
+  50% { transform: translateY(-15px) translateX(-10px) rotate(-5deg) scale(1); opacity: 0.8; }
+  75% { transform: translateY(-40px) translateX(5px) rotate(8deg) scale(1.05); opacity: 0.9; }
+  100% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); opacity: 0.7; }
 }
-.juggle-lettuce { animation: juggle-lettuce 4s ease-in-out infinite; }
+.animate-float-emoji { animation: floatEmoji 6s ease-in-out infinite; display: inline-block; }
 
-@keyframes juggle-tomato {
-  0%, 100% { transform: translateY(0) rotate(6deg); }
-  50% { transform: translateY(-25px) rotate(-10deg); }
-}
-.juggle-tomato { animation: juggle-tomato 4.5s ease-in-out infinite; }
-
-@keyframes juggle-cheese {
-  0%, 100% { transform: translateY(0) rotate(-8deg); }
-  50% { transform: translateY(-18px) rotate(5deg); }
-}
-.juggle-cheese { animation: juggle-cheese 3.8s ease-in-out infinite; }
-
-@keyframes juggle-meat {
-  0%, 100% { transform: translateY(0) rotate(4deg); }
-  50% { transform: translateY(-22px) rotate(-7deg); }
-}
-.juggle-meat { animation: juggle-meat 4.2s ease-in-out infinite; }
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-float, .juggle-lettuce, .juggle-tomato, .juggle-cheese, .juggle-meat {
-    animation: none !important;
-  }
-  .animate-spin-slow { animation: none !important; }
-  .animate-marquee { animation: none !important; }
-}
-
-/* ---- Tanish-style floating veggie animation ---- */
 @keyframes floatVeg {
-  0% {
-    opacity: 0;
-    transform: translate(var(--x, -200px), 500px) rotate(0deg) scale(0.4);
-  }
+  0% { opacity: 0; transform: translate(var(--x, -200px), 500px) rotate(0deg) scale(0.4); }
   10% { opacity: 1; }
-  35% {
-    transform: translate(calc(var(--x, -200px) / 2), 120px) rotate(calc(var(--r, 720deg) * 0.5)) scale(1);
-  }
-  60% {
-    transform: translate(0, -120px) rotate(var(--r, 720deg)) scale(1.1);
-    opacity: 1;
-  }
+  35% { transform: translate(calc(var(--x, -200px) / 2), 120px) rotate(calc(var(--r, 720deg) * 0.5)) scale(1); }
+  60% { transform: translate(0, -120px) rotate(var(--r, 720deg)) scale(1.1); opacity: 1; }
   85% { opacity: 1; }
-  100% {
-    opacity: 0;
-    transform: translate(calc(var(--x, -200px) * -1), 500px) rotate(calc(var(--r, 720deg) + 360deg)) scale(0.5);
-  }
+  100% { opacity: 0; transform: translate(calc(var(--x, -200px) * -1), 500px) rotate(calc(var(--r, 720deg) + 360deg)) scale(0.5); }
 }
-
-.vegi-float {
-  animation: floatVeg 6s linear infinite;
-  opacity: 0;
-  width: clamp(70px, 8vw, 150px);
+@keyframes floatVegRev {
+  0% { opacity: 0; transform: translate(var(--x, 200px), 500px) rotate(0deg) scale(0.4); }
+  10% { opacity: 1; }
+  35% { transform: translate(calc(var(--x, 200px) / 2), 120px) rotate(calc(var(--r, 720deg) * 0.5)) scale(1); }
+  60% { transform: translate(0, -120px) rotate(var(--r, 720deg)) scale(1.1); opacity: 1; }
+  85% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(var(--x, 200px) * -1), 500px) rotate(calc(var(--r, 720deg) + 360deg)) scale(0.5); }
 }
-.vegi-float:nth-child(1) { animation-delay: 0s; --x: -250px; --r: 720deg; }
-.vegi-float:nth-child(2) { animation-delay: 1.2s; --x: 180px; --r: -540deg; }
-.vegi-float:nth-child(3) { animation-delay: 2.4s; --x: -120px; --r: 900deg; }
-.vegi-float:nth-child(4) { animation-delay: 3.6s; --x: 280px; --r: -720deg; }
-
-/* Tanish-style reverse float (second layer, opposite --x values) */
-.vegi-float-rev {
-  animation: floatVegRev 6s linear infinite;
-  opacity: 0;
-  width: clamp(70px, 8vw, 150px);
-}
-.vegi-float-rev:nth-child(1) { animation-delay: 0s; --x: 220px; --r: 540deg; }
-.vegi-float-rev:nth-child(2) { animation-delay: 1.2s; --x: -180px; --r: -720deg; }
-.vegi-float-rev:nth-child(3) { animation-delay: 2.4s; --x: 130px; --r: 900deg; }
-.vegi-float-rev:nth-child(4) { animation-delay: 3.6s; --x: -260px; --r: -540deg; }
 
 @keyframes floatVegRev {
-  0% {
-    opacity: 0;
-    transform: translate(var(--x, 200px), 500px) rotate(0deg) scale(0.4);
-  }
+  0% { opacity: 0; transform: translate(var(--x, 200px), 500px) rotate(0deg) scale(0.4); }
   10% { opacity: 1; }
-  35% {
-    transform: translate(calc(var(--x, 200px) / 2), 120px) rotate(calc(var(--r, 720deg) * 0.5)) scale(1);
-  }
-  60% {
-    transform: translate(0, -120px) rotate(var(--r, 720deg)) scale(1.1);
-    opacity: 1;
-  }
+  35% { transform: translate(calc(var(--x, 200px) / 2), 120px) rotate(calc(var(--r, 720deg) * 0.5)) scale(1); }
+  60% { transform: translate(0, -120px) rotate(var(--r, 720deg)) scale(1.1); opacity: 1; }
   85% { opacity: 1; }
-  100% {
-    opacity: 0;
-    transform: translate(calc(var(--x, 200px) * -1), 500px) rotate(calc(var(--r, 720deg) + 360deg)) scale(0.5);
-  }
+  100% { opacity: 0; transform: translate(calc(var(--x, 200px) * -1), 500px) rotate(calc(var(--r, 720deg) + 360deg)) scale(0.5); }
 }
 
-/* ---- Floating emoji animation ---- */
-@keyframes floatEmoji {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
-    opacity: 0.7;
-  }
-  25% {
-    transform: translateY(-30px) translateX(15px) rotate(10deg) scale(1.1);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-15px) translateX(-10px) rotate(-5deg) scale(1);
-    opacity: 0.8;
-  }
-  75% {
-    transform: translateY(-40px) translateX(5px) rotate(8deg) scale(1.05);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
-    opacity: 0.7;
-  }
+/* Scroll to top button */
+.scroll-top-btn {
+  transition: opacity 0.3s, transform 0.3s;
 }
-.animate-float-emoji {
-  animation: floatEmoji 6s ease-in-out infinite;
-  display: inline-block;
+.scroll-top-btn:hover { transform: translateY(-4px) scale(1.1); }
+
+/* Toast notification */
+.toast-enter { animation: toastIn 0.4s ease-out forwards; }
+.toast-exit { animation: toastOut 0.3s ease-in forwards; }
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
+@keyframes toastOut {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(20px) scale(0.9); }
+}
+
+/* Focus visible */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--color-mustard);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float, .animate-float-emoji, .animate-spin-slow, .animate-marquee { animation: none !important; }
+}
+
+img { max-width: 100%; }
