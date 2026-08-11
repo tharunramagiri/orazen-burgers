@@ -8,12 +8,44 @@ const links = [
   { href: '/contact', label: 'Contact' },
 ];
 
-// Individual letters for the pop-up animation (matching original design)
-const letters = ['O', 'R', 'A', 'Z', 'E', 'N'];
-
 export default function Footer() {
   return (
     <footer className="relative w-full overflow-hidden bg-beige">
+      {/* Floating emoji layer - CSS animated */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <span className="absolute text-3xl animate-float-emoji" style={{ left: '10%', bottom: '20%', animationDelay: '0s' }}>🌶️</span>
+        <span className="absolute text-3xl animate-float-emoji" style={{ left: '30%', bottom: '40%', animationDelay: '1.5s' }}>🧅</span>
+        <span className="absolute text-3xl animate-float-emoji" style={{ left: '55%', bottom: '25%', animationDelay: '3s' }}>🍅</span>
+        <span className="absolute text-3xl animate-float-emoji" style={{ left: '75%', bottom: '45%', animationDelay: '4.5s' }}>🥬</span>
+        <span className="absolute text-2xl animate-float-emoji" style={{ left: '20%', bottom: '60%', animationDelay: '2s' }}>🍔</span>
+        <span className="absolute text-2xl animate-float-emoji" style={{ left: '65%', bottom: '65%', animationDelay: '5s' }}>🧀</span>
+        <span className="absolute text-2xl animate-float-emoji" style={{ left: '85%', bottom: '30%', animationDelay: '3.5s' }}>🍟</span>
+      </div>
+
+      {/* Floating ingredient images BEHIND text */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0 z-20" aria-hidden="true">
+        <img
+          src="/img-webp/lettuce.webp" alt=""
+          className="absolute bottom-0 object-contain select-none"
+          style={{ left: '12%', width: 'clamp(70px, 11vw, 150px)' }}
+        />
+        <img
+          src="/img-webp/tomato.webp" alt=""
+          className="absolute bottom-0 object-contain select-none"
+          style={{ left: '34%', width: 'clamp(60px, 9vw, 120px)' }}
+        />
+        <img
+          src="/img-webp/cheese-logo.webp" alt=""
+          className="absolute bottom-0 object-contain select-none"
+          style={{ left: '56%', width: 'clamp(80px, 12vw, 160px)' }}
+        />
+        <img
+          src="/img-webp/meat.webp" alt=""
+          className="absolute bottom-0 object-contain select-none"
+          style={{ left: '80%', width: 'clamp(90px, 13vw, 170px)' }}
+        />
+      </div>
+
       {/* Top row: nav links + copyright */}
       <div className="relative z-30 flex items-center justify-between gap-[2vw] pb-[1vw] max-md:flex-col max-md:items-center max-md:gap-[4vw] max-md:pb-[6vw] px-[2.5vw] pt-[6vw]">
         <nav className="flex flex-wrap items-center gap-x-[2vw] gap-y-[.6vw] max-md:gap-x-[5vw] max-md:gap-y-[2vw]" aria-label="Footer navigation">
@@ -44,41 +76,8 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Giant ORAZEN section with floating ingredients behind */}
+      {/* Giant ORAZEN */}
       <div className="mt-[10vw] relative min-h-[18vw] max-md:mt-[5vw]">
-        {/* Floating ingredients BEHIND the text */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0 z-20" aria-hidden="true">
-          <img
-            src="/img-webp/lettuce.webp"
-            alt=""
-            draggable={false}
-            className="absolute bottom-0 w-[11vw] h-auto object-contain select-none"
-            style={{ left: '12%' }}
-          />
-          <img
-            src="/img-webp/tomato.webp"
-            alt=""
-            draggable={false}
-            className="absolute bottom-0 w-[9vw] h-auto object-contain select-none"
-            style={{ left: '34%' }}
-          />
-          <img
-            src="/img-webp/cheese-logo.webp"
-            alt=""
-            draggable={false}
-            className="absolute bottom-0 w-[12vw] h-auto object-contain select-none"
-            style={{ left: '56%' }}
-          />
-          <img
-            src="/img-webp/meat.webp"
-            alt=""
-            draggable={false}
-            className="absolute bottom-0 w-[13vw] h-auto object-contain select-none"
-            style={{ left: '80%' }}
-          />
-        </div>
-
-        {/* ORAZEN text in Modak — spans full width, massive */}
         <h2 className="text-center text-red z-10 relative font-modak text-[15vw] uppercase leading-[.5] translate-y-[5vw] max-md:translate-y-0"
           style={{
             WebkitTextStroke: 'clamp(1px, 1vw, 16px) var(--color-white)',
@@ -86,23 +85,13 @@ export default function Footer() {
           }}
         >
           <span className="sr-only">ORAZEN</span>
-          <span aria-hidden="true">
-            {letters.map((letter, i) => (
-              <span
-                key={i}
-                className="inline-block will-change-transform"
-              >
-                {letter}
-              </span>
-            ))}
-          </span>
+          <span aria-hidden="true">ORAZEN</span>
         </h2>
 
-        {/* Mobile divider + copyright */}
+        {/* Mobile */}
         <div className="relative hidden max-md:block z-30 mt-[10vw] px-[2.5vw]">
           <div className="h-[2px] w-full bg-black/20" />
         </div>
-
         <div className="relative z-30 pt-[1vw] max-md:pt-[4vw] px-[2.5vw]">
           <p className="text-[1.8vw] leading-[1.1] max-md:text-[4.2vw] uppercase font-body opacity-80 text-center text-ink">
             <span className="hidden max-md:block mb-2">
