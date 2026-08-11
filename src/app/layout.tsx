@@ -4,7 +4,8 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
-import VeggieTrail from "@/components/VeggieTrail";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 const modak = Modak({
   weight: "400",
@@ -35,10 +36,12 @@ export default function RootLayout({
     <html lang="en" className={`${modak.variable} ${mouseMemoirs.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-beige text-ink antialiased">
         <LoadingScreen />
-        <VeggieTrail />
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <CustomCursor />
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );
