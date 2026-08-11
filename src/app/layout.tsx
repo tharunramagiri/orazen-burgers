@@ -26,11 +26,18 @@ export const metadata: Metadata = {
   title: "ORAZEN — Smashed Fresh. Bold Flavor.",
   description:
     "Smashed patties · toasted buns. 100% Organic. Zero Guilt. Built & redesigned by orazen.online.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "ORAZEN",
+  },
   openGraph: {
     title: "ORAZEN — Smashed Fresh. Bold Flavor.",
     description: "Smashed for the bold, built for the hungry.",
     images: ["/img-webp/burgerH.webp"],
   },
+  themeColor: "#f91814",
 };
 
 export default function RootLayout({
