@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import JellyWave from "@/components/JellyWave";
 
 const blocks = [
   {
@@ -21,7 +22,14 @@ const blocks = [
 export default function Experience() {
   return (
     <section className="relative overflow-hidden py-20 sm:py-28">
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+      {/* Watermark background text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.03]">
+        <span className="font-display text-[25vw] leading-none text-ink whitespace-nowrap">
+          ORAZEN
+        </span>
+      </div>
+
+      <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 relative z-10">
         <Reveal className="max-w-2xl">
           <p className="font-body text-xs font-bold tracking-[0.25em] text-red uppercase">
             Experience

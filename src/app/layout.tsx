@@ -3,6 +3,8 @@ import { Modak, Mouse_Memoirs } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
+import VeggieTrail from "@/components/VeggieTrail";
 
 const modak = Modak({
   weight: "400",
@@ -21,7 +23,7 @@ const mouseMemoirs = Mouse_Memoirs({
 export const metadata: Metadata = {
   title: "ORAZEN | Artisan Smashed Burgers",
   description:
-    "Smashed hot on the flat top, topped with melted cheddar and our signature chili honey glaze. Crafted to satisfy your cravings since 2026. Est. 2026 — Built & redesigned by orazen.online.",
+    "Smashed hot on the flat top, topped with melted cheddar and our signature chili honey glaze. Built & redesigned by orazen.online.",
 };
 
 export default function RootLayout({
@@ -32,6 +34,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${modak.variable} ${mouseMemoirs.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-beige text-ink antialiased">
+        <LoadingScreen />
+        <VeggieTrail />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

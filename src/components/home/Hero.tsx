@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import StickerPeel from "@/components/StickerPeel";
 
 export default function Hero() {
   return (
@@ -63,6 +64,24 @@ export default function Hero() {
             </p>
           </div>
         </Reveal>
+
+        {/* Sticker decorations */}
+        <div className="absolute top-[18%] left-[2%] z-40 hidden lg:block">
+          <StickerPeel
+            src="/img-webp/fries_sticker.png"
+            alt="Crispy fries sticker"
+            width="110px"
+            rotate="-15deg"
+          />
+        </div>
+        <div className="absolute top-[55%] right-[3%] z-40 hidden lg:block">
+          <StickerPeel
+            src="/img/burgerselfie.png"
+            alt="Burger selfie sticker"
+            width="130px"
+            rotate="20deg"
+          />
+        </div>
       </div>
     </section>
   );

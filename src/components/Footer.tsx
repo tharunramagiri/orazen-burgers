@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FloatingVeggies from "@/components/FloatingVeggies";
 
 const footerLinks = [
   { label: "Home", href: "/" },
@@ -9,8 +10,8 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-beige">
-      <div className="mx-auto max-w-[1280px] px-6 pt-16 pb-10 sm:px-8 lg:px-12">
+    <footer className="relative bg-ink text-beige overflow-hidden">
+      <div className="mx-auto max-w-[1280px] px-6 pt-16 pb-10 sm:px-8 lg:px-12 relative z-10">
         <nav aria-label="Footer navigation">
           <ul className="flex flex-wrap gap-x-8 gap-y-3 border-b border-beige/15 pb-10 font-body text-sm font-bold tracking-[0.08em] uppercase">
             {footerLinks.map((link) => (
@@ -23,7 +24,10 @@ export default function Footer() {
           </ul>
         </nav>
 
-        <div className="flex flex-col gap-6 pt-10 sm:flex-row sm:items-end sm:justify-between">
+        {/* Floating veggie ingredients */}
+        <FloatingVeggies />
+
+        <div className="flex flex-col gap-6 pt-10 sm:flex-row sm:items-end sm:justify-between mt-[6vw] sm:mt-[10vw]">
           <div>
             <p className="font-display text-[clamp(3.5rem,16vw,9rem)] leading-[0.85] tracking-wide text-beige">
               ORAZEN

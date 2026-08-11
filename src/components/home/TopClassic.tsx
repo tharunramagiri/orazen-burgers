@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import StickerImage from "@/components/StickerImage";
+import JellyWave from "@/components/JellyWave";
 
 const gallery = [
   { src: "/img-webp/about-1.webp", alt: "Chef preparing a fresh smashed burger" },
@@ -14,7 +15,10 @@ const galleryTilt = ["rotate-[-3deg]", "mt-6 rotate-[2deg]", "rotate-[-2deg]"];
 export default function TopClassic() {
   return (
     <section id="about" className="relative overflow-hidden py-20 sm:py-28">
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+      {/* Jelly wave separator */}
+      <JellyWave color="#f4a804" opacity={0.12} />
+
+      <div className="mx-auto max-w-[1280px] px-6 pt-12 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <Reveal>
             <p className="font-body text-xs font-bold tracking-[0.25em] text-red uppercase">
@@ -38,10 +42,10 @@ export default function TopClassic() {
             </Link>
 
             <div className="mt-14 hidden gap-6 sm:flex">
-              <StickerImage src="/img-webp/lettuce.webp" alt="Path — lettuce" size={84} tilt={-10} />
-              <StickerImage src="/img-webp/tomato.webp" alt="Path — tomato" size={84} tilt={8} />
-              <StickerImage src="/img-webp/cheese-logo.webp" alt="Path — cheese" size={84} tilt={-6} />
-              <StickerImage src="/img-webp/meat.webp" alt="Path — patty" size={84} tilt={12} />
+              <StickerImage src="/img-webp/lettuce.webp" alt="Lettuce" size={84} tilt={-10} />
+              <StickerImage src="/img-webp/tomato.webp" alt="Tomato" size={84} tilt={8} />
+              <StickerImage src="/img-webp/cheese-logo.webp" alt="Cheese" size={84} tilt={-6} />
+              <StickerImage src="/img-webp/meat.webp" alt="Patty" size={84} tilt={12} />
             </div>
           </Reveal>
 

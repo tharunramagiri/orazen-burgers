@@ -1,10 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import JellyWave from "@/components/JellyWave";
+import StickerPeel from "@/components/StickerPeel";
 
 export default function FeelItCta() {
   return (
     <section className="relative overflow-hidden bg-mustard">
+      {/* Jelly wave at top */}
+      <JellyWave color="#f91814" opacity={0.15} />
+
       <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-10 px-6 py-20 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-12 lg:py-28">
         <Reveal>
           <p className="font-body text-xs font-bold tracking-[0.2em] text-ink/70 uppercase">
@@ -25,6 +30,16 @@ export default function FeelItCta() {
           >
             Order Now
           </Link>
+
+          {/* Sticker decoration */}
+          <div className="mt-8 hidden sm:block">
+            <StickerPeel
+              src="/img-webp/fries.webp"
+              alt="Crispy fries"
+              width="100px"
+              rotate="-8deg"
+            />
+          </div>
         </Reveal>
 
         <Reveal delay={120} className="relative mx-auto aspect-[4/5] w-full max-w-sm">
