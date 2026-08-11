@@ -1,158 +1,119 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
+'use client';
+import Link from 'next/link';
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/menu", label: "Burgers" },
-  { href: "/spices", label: "Spices" },
-  { href: "/contact", label: "Contact" },
+  { href: '/', label: 'Home' },
+  { href: '/menu', label: 'Burgers' },
+  { href: '/spices', label: 'Spices' },
+  { href: '/contact', label: 'Contact' },
 ];
 
-// Tanish's cursor emoji trail (🌶️🧅🍅🥬)
-const VEGGIES = ["🌶️", "🧅", "🍅", "🥬"];
+// Individual letters for the pop-up animation (like original CRAV)
+const letters = ['O', 'R', 'A', 'Z', 'E', 'N'];
 
 export default function Footer() {
-  const nodesRef = useRef<{ el: HTMLSpanElement; x: number; y: number }[]>([]);
-
-  useEffect(() => {
-    const style = document.createElement("style");
-    style.textContent = `
-      .ft-veggie-node {
-        position: fixed; top: 0; left: 0;
-        pointer-events: none; z-index: 999998;
-        font-size: 28px; line-height: 1;
-        user-select: none; will-change: transform;
-        display: flex; align-items: center; justify-content: center;
-        width: 52px; height: 52px;
-        border-radius: 50%; background: white;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-      }
-    `;
-    document.head.appendChild(style);
-
-    const canvas = document.createElement("canvas");
-    canvas.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:999997;";
-    document.body.appendChild(canvas);
-    const ctx = canvas.getContext("2d")!;
-
-    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-    resize();
-    window.addEventListener("resize", resize);
-
-    const nodes = VEGGIES.map((icon) => {
-      const el = document.createElement("span");
-      el.className = "ft-veggie-node";
-      el.textContent = icon;
-      document.body.appendChild(el);
-      return { el, x: -300, y: -300 };
-    });
-    nodesRef.current = nodes;
-
-    let mx = -300, my = -300;
-    const LERP = [0.15, 0.14, 0.13, 0.12];
-
-    const onMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY; };
-    window.addEventListener("mousemove", onMove, { passive: true });
-
-    function tick() {
-      nodes[0].x += (mx - nodes[0].x) * LERP[0];
-      nodes[0].y += (my - nodes[0].y) * LERP[0];
-      for (let i = 1; i < nodes.length; i++) {
-        nodes[i].x += (nodes[i - 1].x - nodes[i].x) * LERP[i];
-        nodes[i].y += (nodes[i - 1].y - nodes[i].y) * LERP[i];
-      }
-      nodes.forEach((n) => {
-        n.el.style.transform = `translate(${n.x}px, ${n.y}px) translate(-50%, -50%)`;
-      });
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.beginPath();
-      ctx.moveTo(mx, my);
-      for (let i = 0; i < nodes.length; i++) {
-        const mx2 = i === 0 ? (mx + nodes[0].x) / 2 : (nodes[i - 1].x + nodes[i].x) / 2;
-        const my2 = i === 0 ? (my + nodes[0].y) / 2 : (nodes[i - 1].y + nodes[i].y) / 2;
-        ctx.quadraticCurveTo(i === 0 ? mx : nodes[i - 1].x, i === 0 ? my : nodes[i - 1].y, mx2, my2);
-      }
-      ctx.lineTo(nodes[nodes.length - 1].x, nodes[nodes.length - 1].y);
-      ctx.strokeStyle = "rgba(249, 24, 20, 0.4)";
-      ctx.lineWidth = 3;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-      ctx.stroke();
-      requestAnimationFrame(tick);
-    }
-    const raf = requestAnimationFrame(tick);
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("resize", resize);
-      nodes.forEach((n) => n.el.remove());
-      canvas.remove();
-      document.head.removeChild(style);
-    };
-  }, []);
-
   return (
-    <footer className="relative flex flex-col overflow-hidden bg-beige">
-      {/* ===== TANISH-STYLE FLOATING VEGGIE ANIMATIONS (2 layers) ===== */}
-      {/* Layer 1: vegi-animation */}
-      <div className="absolute inset-0 flex justify-evenly items-end pointer-events-none overflow-hidden z-0">
-        <img src="/img-webp/patty.png" alt="" className="vegi-float" />
-        <img src="/img-webp/tomato-sticker.png" alt="" className="vegi-float" />
-        <img src="/img-webp/cheese-sticker.png" alt="" className="vegi-float" />
-        <img src="/img-webp/lettuce-sticker.png" alt="" className="vegi-float" />
-      </div>
-      {/* Layer 2: vegi-animation-1 (reversed order, different --x/--r) */}
-      <div className="absolute inset-0 flex justify-evenly items-end pointer-events-none overflow-hidden z-0">
-        <img src="/img-webp/lettuce-sticker.png" alt="" className="vegi-float-rev" />
-        <img src="/img-webp/patty.png" alt="" className="vegi-float-rev" />
-        <img src="/img-webp/tomato-sticker.png" alt="" className="vegi-float-rev" />
-        <img src="/img-webp/cheese-sticker.png" alt="" className="vegi-float-rev" />
-      </div>
-
-      {/* ===== FOOTER CONTENT (above floating veggies) ===== */}
-      {/* Footer info row */}
-      <section className="relative z-10 flex gap-[100px] px-8 pt-12 pb-4 font-body text-sm uppercase tracking-[1px] max-md:flex-col max-md:gap-4 max-md:px-6">
-        <div className="flex gap-6 font-body text-lg font-semibold text-black max-md:text-base">
-          {links.map((link) => (
+    <footer className="relative w-full overflow-hidden bg-beige">
+      {/* Top row: nav links + copyright */}
+      <div className="relative z-30 flex items-center justify-between gap-[2vw] pb-[1vw] max-md:flex-col max-md:items-center max-md:gap-[4vw] max-md:pb-[6vw] px-[2.5vw] pt-[6vw]">
+        <nav className="flex flex-wrap items-center gap-x-[2vw] gap-y-[.6vw] max-md:gap-x-[5vw] max-md:gap-y-[2vw]" aria-label="Footer navigation">
+          {links.map((l) => (
             <Link
-              key={link.label}
-              href={link.href}
-              className="transition-colors hover:text-red"
+              key={l.href}
+              href={l.href}
+              className="text-[1.8vw] leading-[1.1] max-md:text-[4.2vw] uppercase font-body hover:text-red transition-colors text-ink"
             >
-              {link.label}
+              {l.label}
             </Link>
           ))}
+        </nav>
+        <p className="text-[1.8vw] leading-[1.1] max-md:hidden max-md:text-[4.2vw] uppercase opacity-80 font-body text-ink">
+          © 2026 ORAZEN — All rights reserved
+        </p>
+      </div>
+
+      {/* Divider */}
+      <div className="relative z-30 max-md:hidden px-[2.5vw]">
+        <div className="h-[2px] w-full bg-black/20" />
+      </div>
+
+      {/* Tagline */}
+      <div className="relative z-30 max-md:hidden pt-[1vw] opacity-80 max-md:pt-[4vw] px-[2.5vw]">
+        <p className="text-[1.8vw] leading-[1.1] max-md:text-[4.2vw] uppercase font-body text-ink">
+          Smashed patties · toasted buns · built by orazen.online
+        </p>
+      </div>
+
+      {/* Giant ORAZEN section with floating ingredients behind */}
+      <div className="mt-[10vw] relative min-h-[18vw] max-md:mt-[5vw]">
+        {/* Floating ingredients BEHIND the text */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-0 z-20" aria-hidden="true">
+          <img
+            src="/img-webp/lettuce.webp"
+            alt=""
+            draggable={false}
+            className="absolute bottom-0 w-[11vw] h-auto object-contain select-none"
+            style={{ left: '12%' }}
+          />
+          <img
+            src="/img-webp/tomato.webp"
+            alt=""
+            draggable={false}
+            className="absolute bottom-0 w-[9vw] h-auto object-contain select-none"
+            style={{ left: '34%' }}
+          />
+          <img
+            src="/img-webp/cheese-logo.webp"
+            alt=""
+            draggable={false}
+            className="absolute bottom-0 w-[12vw] h-auto object-contain select-none"
+            style={{ left: '56%' }}
+          />
+          <img
+            src="/img-webp/meat.webp"
+            alt=""
+            draggable={false}
+            className="absolute bottom-0 w-[13vw] h-auto object-contain select-none"
+            style={{ left: '80%' }}
+          />
         </div>
 
-        <p className="absolute right-8 top-12 font-body text-lg font-semibold text-black uppercase tracking-[1px] max-md:static max-md:text-sm">
-          © 2026 ORAZEN — ALL RIGHTS RESERVED
-        </p>
+        {/* ORAZEN text in Modak — spans full width, massive */}
+        <h2 className="text-center text-red z-10 relative font-modak text-[15vw] uppercase leading-[.5] translate-y-[5vw] max-md:translate-y-0"
+          style={{
+            WebkitTextStroke: 'clamp(1px, 1vw, 16px) var(--color-white)',
+            paintOrder: 'stroke fill',
+          }}
+        >
+          <span className="sr-only">ORAZEN</span>
+          <span aria-hidden="true">
+            {letters.map((letter, i) => (
+              <span
+                key={i}
+                className="inline-block will-change-transform"
+              >
+                {letter}
+              </span>
+            ))}
+          </span>
+        </h2>
 
-        <hr className="absolute left-8 right-8 bottom-2 border-0 h-px bg-black/20" />
-
-        <p className="absolute bottom-2 left-8 font-body text-sm font-semibold text-[#777] uppercase tracking-[1px] max-md:static max-md:mt-2">
-          SMASHED PATTIES • TOASTED BUNS • BUILT BY ORAZEN.ONLINE
-        </p>
-      </section>
-
-      {/* Giant ORAZEN heading — Tanish style */}
-      <section className="relative z-10 flex justify-center items-center">
-        <div className="flex justify-center items-center w-fit p-4 my-12 md:my-20">
-          <h1
-            className="font-modak text-[clamp(60px,22vw,380px)] text-red leading-[0.72] uppercase select-none"
-            style={{
-              WebkitTextStroke: "clamp(1.5px, 0.8vw, 16px) var(--color-white)",
-              paintOrder: "stroke fill",
-              textShadow: "0 12px 36px rgba(76, 0, 22, 0.08)",
-            }}
-          >
-            ORAZEN
-          </h1>
+        {/* Mobile divider + copyright */}
+        <div className="relative hidden max-md:block z-30 mt-[10vw] px-[2.5vw]">
+          <div className="h-[2px] w-full bg-black/20" />
         </div>
-      </section>
+
+        <div className="relative z-30 pt-[1vw] max-md:pt-[4vw] px-[2.5vw]">
+          <p className="text-[1.8vw] leading-[1.1] max-md:text-[4.2vw] uppercase font-body opacity-80 text-center text-ink">
+            <span className="hidden max-md:block mb-2">
+              Smashed patties · toasted buns · built by orazen.online
+            </span>
+            <span className="md:hidden block">
+              © 2026 ORAZEN — All rights reserved
+            </span>
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }
