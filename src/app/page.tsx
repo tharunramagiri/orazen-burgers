@@ -4,7 +4,6 @@ import ExperienceSection from '@/components/home/Experience'
 import IngredientsShowcase from '@/components/IngredientsShowcase'
 import TakeawaySection from '@/components/home/TakeAway'
 import FeelTheChange from '@/components/FeelItCta'
-import Footer from '@/components/Footer'
 import InstagramReels from '@/components/InstagramReels'
 import PageTransition from '@/components/PageTransition'
 
@@ -18,7 +17,6 @@ export default function Home() {
       <TakeawaySection />
       <FeelTheChange />
       <InstagramReels />
-      <Footer />
     </PageTransition>
   )
 }
