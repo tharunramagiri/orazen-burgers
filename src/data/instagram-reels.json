@@ -1,0 +1,10 @@
+{
+  "reels": [
+    { "id": 1, "image": "/img-webp/about-1.webp", "caption": "Fresh smashed patties every day 🍔", "link": "https://instagram.com/orazenburgers" },
+    { "id": 2, "image": "/img-webp/about-2.webp", "caption": "That cheese pull though 🧀", "link": "https://instagram.com/orazenburgers" },
+    { "id": 3, "image": "/img-webp/about-3.webp", "caption": "Come hungry, leave happy 😋", "link": "https://instagram.com/orazenburgers" },
+    { "id": 4, "image": "/img-webp/burgerwithhands.webp", "caption": "Double stack Saturdays 🔥", "link": "https://instagram.com/orazenburgers" },
+    { "id": 5, "image": "/img-webp/cheesyBurger.webp", "caption": "The ORAZEN classic 💯", "link": "https://instagram.com/orazenburgers" },
+    { "id": 6, "image": "/img-webp/cta.webp", "caption": "Date night burgers 🕯️", "link": "https://instagram.com/orazenburgers" }
+  ]
+}
