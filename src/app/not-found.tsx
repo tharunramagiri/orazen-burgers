@@ -9,25 +9,25 @@ export default function NotFound() {
         <img
           src="/img-webp/lettuce.webp"
           alt=""
-          className="absolute bottom-0 select-none will-change-transform opacity-0"
+          className="absolute bottom-0 select-none will-change-transform animate-float"
           style={{ left: "18%", width: "10vw" }}
         />
         <img
           src="/img-webp/tomato.webp"
           alt=""
-          className="absolute bottom-0 select-none will-change-transform opacity-0"
+          className="absolute bottom-0 select-none will-change-transform animate-float"
           style={{ left: "38%", width: "8vw" }}
         />
         <img
           src="/img-webp/cheese-logo.webp"
           alt=""
-          className="absolute bottom-0 select-none will-change-transform opacity-0"
+          className="absolute bottom-0 select-none will-change-transform animate-float"
           style={{ left: "62%", width: "11vw" }}
         />
         <img
           src="/img-webp/meat.webp"
           alt=""
-          className="absolute bottom-0 select-none will-change-transform opacity-0"
+          className="absolute bottom-0 select-none will-change-transform animate-float"
           style={{ left: "84%", width: "12vw" }}
         />
       </div>
