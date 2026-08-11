@@ -1,12 +1,13 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-const footerLinks = [
-  { label: "Home", href: "/" },
-  { label: "Burgers", href: "/menu" },
-  { label: "Spices", href: "/spices" },
-  { label: "Contact", href: "/contact" },
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/menu", label: "Burgers" },
+  { href: "/spices", label: "Spices" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const VEGGIES = ["🌶️", "🧅", "🍅", "🥬"];
@@ -16,43 +17,30 @@ export default function Footer() {
   const nodesRef = useRef<{ el: HTMLSpanElement; x: number; y: number }[]>([]);
 
   useEffect(() => {
-    // Inject veggie node styles
     const style = document.createElement("style");
     style.textContent = `
       .ft-veggie-node {
         position: fixed; top: 0; left: 0;
         pointer-events: none; z-index: 999998;
         font-size: 28px; line-height: 1;
-        user-select: none;
-        will-change: transform;
-        display: flex;
-        align-items: center; justify-content: center;
+        user-select: none; will-change: transform;
+        display: flex; align-items: center; justify-content: center;
         width: 52px; height: 52px;
-        border-radius: 50%;
-        background: white;
+        border-radius: 50%; background: white;
         box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-        transition: opacity 0.3s;
       }
     `;
     document.head.appendChild(style);
 
-    // Canvas for trail string
     const canvas = document.createElement("canvas");
-    canvas.id = "footer-trail-canvas";
-    canvas.style.cssText =
-      "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:999997;";
+    canvas.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:999997;";
     document.body.appendChild(canvas);
-    canvasRef.current = canvas;
     const ctx = canvas.getContext("2d")!;
 
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resize();
     window.addEventListener("resize", resize);
 
-    // Build veggie nodes
     const nodes = VEGGIES.map((icon) => {
       const el = document.createElement("span");
       el.className = "ft-veggie-node";
@@ -62,14 +50,10 @@ export default function Footer() {
     });
     nodesRef.current = nodes;
 
-    let mx = -300,
-      my = -300;
+    let mx = -300, my = -300;
     const LERP = [0.15, 0.14, 0.13, 0.12];
 
-    const onMove = (e: MouseEvent) => {
-      mx = e.clientX;
-      my = e.clientY;
-    };
+    const onMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY; };
     window.addEventListener("mousemove", onMove, { passive: true });
 
     function tick() {
@@ -79,23 +63,16 @@ export default function Footer() {
         nodes[i].x += (nodes[i - 1].x - nodes[i].x) * LERP[i];
         nodes[i].y += (nodes[i - 1].y - nodes[i].y) * LERP[i];
       }
-
       nodes.forEach((n) => {
         n.el.style.transform = `translate(${n.x}px, ${n.y}px) translate(-50%, -50%)`;
       });
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.beginPath();
       ctx.moveTo(mx, my);
       for (let i = 0; i < nodes.length; i++) {
         const mx2 = i === 0 ? (mx + nodes[0].x) / 2 : (nodes[i - 1].x + nodes[i].x) / 2;
         const my2 = i === 0 ? (my + nodes[0].y) / 2 : (nodes[i - 1].y + nodes[i].y) / 2;
-        ctx.quadraticCurveTo(
-          i === 0 ? mx : nodes[i - 1].x,
-          i === 0 ? my : nodes[i - 1].y,
-          mx2,
-          my2
-        );
+        ctx.quadraticCurveTo(i === 0 ? mx : nodes[i - 1].x, i === 0 ? my : nodes[i - 1].y, mx2, my2);
       }
       ctx.lineTo(nodes[nodes.length - 1].x, nodes[nodes.length - 1].y);
       ctx.strokeStyle = "rgba(249, 24, 20, 0.4)";
@@ -103,7 +80,6 @@ export default function Footer() {
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
       ctx.stroke();
-
       requestAnimationFrame(tick);
     }
     const raf = requestAnimationFrame(tick);
@@ -119,47 +95,55 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative flex flex-col overflow-hidden bg-beige">
-      {/* Footer info row */}
-      <section className="relative flex gap-[100px] px-8 pt-12 pb-4 font-body text-sm uppercase tracking-[1px] max-md:flex-col max-md:gap-4 max-md:px-6">
-        <div className="flex gap-6 font-body text-lg font-semibold text-black max-md:text-base">
-          {footerLinks.map((link) => (
+    <footer className="relative overflow-hidden bg-beige pt-[6vw]">
+      {/* Floating ingredients — akpr0ject measured positions */}
+      <Image
+        src="/img-webp/lettuce.webp" alt="" width={200} height={160}
+        className="pointer-events-none absolute -left-[3vw] bottom-[26vw] z-20 w-[11.5vw] -rotate-[4deg] select-none max-md:hidden"
+      />
+      <Image
+        src="/img-webp/tomato.webp" alt="" width={200} height={200}
+        className="pointer-events-none absolute left-[31%] bottom-[24vw] z-20 w-[12vw] rotate-[41deg] select-none max-md:w-[16vw]"
+      />
+      <Image
+        src="/img-webp/meat.webp" alt="" width={200} height={270}
+        className="pointer-events-none absolute left-[60%] bottom-[26vw] z-20 w-[11vw] rotate-[106deg] select-none max-md:w-[15vw]"
+      />
+      <Image
+        src="/img-webp/cheese-logo.webp" alt="" width={200} height={200}
+        className="pointer-events-none absolute left-[47%] bottom-[14vw] z-20 w-[11vw] select-none max-md:w-[16vw]"
+      />
+
+      {/* Top row: nav links + copyright */}
+      <div className="relative z-10 flex items-center justify-between px-[3vw] max-md:flex-col max-md:gap-[4vw] max-md:px-[5vw]">
+        <nav className="flex gap-[2vw] max-md:gap-[5vw]">
+          {links.map((l) => (
             <Link
-              key={link.label}
-              href={link.href}
-              className="transition-colors hover:text-red"
+              key={l.href}
+              href={l.href}
+              className="font-body text-[1.1vw] uppercase tracking-[.1em] text-black transition-colors hover:text-red max-md:text-[3.5vw]"
             >
-              {link.label}
+              {l.label}
             </Link>
           ))}
-        </div>
-
-        <p className="absolute right-8 top-12 font-body text-lg font-semibold text-black uppercase tracking-[1px] max-md:static max-md:text-sm">
-          © 2026 ORAZEN — ALL RIGHTS RESERVED
+        </nav>
+        <p className="font-body text-[1.1vw] uppercase tracking-[.05em] text-black/70 max-md:text-[3vw]">
+          © 2026 ORAZEN — All rights reserved
         </p>
+      </div>
 
-        <hr className="absolute left-8 right-8 bottom-2 border-0 h-px bg-black/20" />
+      <div className="relative z-10 mx-[3vw] mt-[1.2vw] border-t border-black/20" />
 
-        <p className="absolute bottom-2 left-8 font-body text-sm font-semibold text-[#777] uppercase tracking-[1px] max-md:static max-md:mt-2">
-          SMASHED PATTIES • TOASTED BUNS • BUILT BY ORAZEN.ONLINE
-        </p>
-      </section>
+      {/* Tagline */}
+      <p className="relative z-10 mt-[1.2vw] px-[3vw] font-body text-[1.1vw] uppercase tracking-[.05em] text-black/70 max-md:px-[5vw] max-md:text-[3vw]">
+        Smashed patties · toasted buns · built by orazen.online
+      </p>
 
-      {/* Giant ORAZEN heading — Tanish style */}
-      <section className="flex justify-center items-center">
-        <div className="flex justify-center items-center w-fit p-4 my-12 md:my-20">
-          <h1
-            className="font-modak text-[clamp(60px,22vw,380px)] text-red leading-[0.72] uppercase select-none"
-            style={{
-              WebkitTextStroke: "clamp(1.5px, 0.8vw, 16px) var(--color-white)",
-              paintOrder: "stroke fill",
-              textShadow: "0 12px 36px rgba(76, 0, 22, 0.08)",
-            }}
-          >
-            ORAZEN
-          </h1>
-        </div>
-      </section>
+      {/* Giant ORAZEN — matching original CRAV footer */}
+      <h2 className="relative z-10 mt-[1vw] text-center font-modak text-[35vw] uppercase leading-[.72] text-red [-webkit-text-stroke:1vw_var(--color-white)] max-md:text-[30vw]"
+        style={{ paintOrder: "stroke fill" }}>
+        ORAZEN
+      </h2>
     </footer>
   );
 }
