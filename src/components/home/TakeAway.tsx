@@ -1,67 +1,152 @@
-import Image from "next/image";
-import Reveal from "@/components/Reveal";
+'use client'
+import Image from 'next/image'
+import { useRef, useEffect } from 'react'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import RevealWords from '@/components/RevealWords'
+import WaveDivider from '@/components/WaveDivider'
 
+const FLIGHT_PATH =
+  'M 6 3 Q 96 7 84 16 Q 58 27 40 28 Q 82 36 70 45 Q 38 56 21 66 Q 6 76 78 86 Q 102 92 50 99'
+
+/* Positions measured from the live site (section-relative, converted to vw/%).
+   left = card left edge as % of width, top = vw from card-zone start. */
 const cities = [
-  { name: "Berlin", src: "/img-webp/berlin.webp", alt: "ORAZEN Burger takeaway packaging in Berlin" },
-  { name: "London", src: "/img-webp/london.webp", alt: "ORAZEN Burger takeaway packaging in London" },
-  { name: "New York", src: "/img-webp/newyork.webp", alt: "ORAZEN Burger takeaway packaging in New York" },
-  { name: "Sydney", src: "/img-webp/sydney.webp", alt: "ORAZEN Burger takeaway packaging in Sydney" },
-  { name: "Tokyo", src: "/img-webp/tokyo.webp", alt: "ORAZEN Burger takeaway packaging in Tokyo" },
-];
+  { name: 'Berlin', src: '/img-webp/berlin.webp', left: '80%', top: '10vw', rot: 7, labelSide: 'right' },
+  { name: 'London', src: '/img-webp/london.webp', left: '34%', top: '24vw', rot: -7, labelSide: 'left' },
+  { name: 'New York', src: '/img-webp/newyork.webp', left: '65%', top: '40vw', rot: 12, labelSide: 'right' },
+  { name: 'Sydney', src: '/img-webp/sydney.webp', left: '14%', top: '65vw', rot: -12, labelSide: 'left' },
+  { name: 'Tokyo', src: '/img-webp/tokyo.webp', left: '71%', top: '90vw', rot: 6, labelSide: 'right' },
+]
 
-export default function TakeAway() {
+export default function TakeawaySection() {
+  const zoneRef = useRef<HTMLDivElement>(null)
+  const svgRef = useRef<SVGSVGElement>(null)
+  const pathRef = useRef<SVGPathElement>(null)
+  const planeRef = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress } = useScroll({ target: zoneRef, offset: ['start end', 'end start'] })
+
+  // Move the plane along the dashed path as the section scrolls through view.
+  const place = (p: number) => {
+    const path = pathRef.current
+    const plane = planeRef.current
+    const svg = svgRef.current
+    if (!path || !plane || !svg) return
+    const rect = svg.getBoundingClientRect()
+    if (!rect.width) return
+    const len = path.getTotalLength()
+    // travel along the path through the middle ~72% of the scroll window
+    const t = Math.min(1, Math.max(0, (p - 0.12) / 0.72))
+    const cur = path.getPointAtLength(t * len)
+    const nxt = path.getPointAtLength(Math.min(len, t * len + 0.5))
+    const sx = rect.width / 100
+    const sy = rect.height / 100
+    const x = cur.x * sx
+    const y = cur.y * sy
+    // tangent in pixel space (accounts for the non-uniform stretch)
+    const angle = (Math.atan2((nxt.y - cur.y) * sy, (nxt.x - cur.x) * sx) * 180) / Math.PI
+    plane.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) rotate(${angle}deg)`
+  }
+
+  useMotionValueEvent(scrollYProgress, 'change', place)
+  useEffect(() => {
+    const id = requestAnimationFrame(() => place(scrollYProgress.get()))
+    return () => cancelAnimationFrame(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
-    <section id="takeaway" className="relative overflow-hidden py-20 sm:py-28">
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-        <Reveal className="max-w-2xl">
-          <p className="font-body text-xs font-bold tracking-[0.25em] text-red uppercase">
-            Take Away
-          </p>
-          <h2 className="mt-3 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-[0.92] tracking-wide text-ink">
-            Quality That Travels
-            <br />
-            With You
-          </h2>
-          <p className="mt-6 max-w-md font-body text-base leading-relaxed text-ink/80 sm:text-lg">
-            Freshly packed smash burgers, ready to go wherever you crave. From
-            our flat-top to any corner of the globe, we ensure every layer
-            stays hot and juicy.
-          </p>
-        </Reveal>
+    <>
+      <WaveDivider from="#f5e3cd" to="#ffd750" height="8vw" className="-mb-[1px]" />
 
-        <div className="relative mt-16">
+      <section className="relative overflow-hidden bg-mustard px-[3vw] pb-[2vw] pt-[1vw]">
+        {/* TAKE AWAY sticker */}
+        <motion.p
+          initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: -7 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="inline-block rounded-full bg-white px-[1.4vw] py-[.4vw] font-modak text-[2vw] uppercase leading-none text-mustard-dark max-md:text-[5vw]"
+        >
+          Take Away
+        </motion.p>
+
+        {/* Heading */}
+        <RevealWords
+          as="h2"
+          text="Quality That Travels With You"
+          className="w-[80vw] font-mouse-memoirs text-[15vw] uppercase leading-[.85] text-white text-stroke-180-mustard max-md:w-full max-md:text-[14vw]"
+          stagger={0.06}
+        />
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="ml-[1vw] mt-[1vw] w-[30vw] font-mouse-memoirs leading-[1.1] text-black text40 max-md:w-[90%]"
+        >
+          Freshly packed smash burgers, ready to go wherever you crave. From our flat top to
+          your hands, in every city we land.
+        </motion.p>
+
+        {/* Flight path + cities — card-zone height matches measured ~108vw span */}
+        <div ref={zoneRef} className="relative mt-[4vw] h-[112vw] max-md:h-auto max-md:space-y-[6vw]">
+          {/* dashed curved path weaving through the cards */}
+          <svg
+            ref={svgRef}
+            className="absolute inset-0 h-full w-full max-md:hidden"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+            fill="none"
+          >
+            <path
+              ref={pathRef}
+              d={FLIGHT_PATH}
+              stroke="#f4a804"
+              strokeWidth="2"
+              strokeDasharray="9 9"
+              vectorEffect="non-scaling-stroke"
+              opacity="0.85"
+            />
+          </svg>
+
+          {/* plane — rides the dashed path as you scroll */}
           <div
-            className="absolute top-1/2 right-0 left-0 hidden h-px -translate-y-1/2 border-t-2 border-dashed border-ink/25 sm:block"
-            aria-hidden="true"
-          />
-          <div className="absolute top-1/2 left-1/2 hidden h-16 w-16 -translate-x-1/2 -translate-y-1/2 rotate-90 sm:block" aria-hidden="true">
-            <Image src="/img/plane.png" alt="" fill sizes="64px" className="object-contain" />
+            ref={planeRef}
+            className="absolute left-0 top-0 z-20 w-[6vw] text-red drop-shadow will-change-transform max-md:hidden"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-auto w-full rotate-90">
+              <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" />
+            </svg>
           </div>
 
-          <div className="relative grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-5 sm:gap-x-6">
-            {cities.map((city, i) => (
-              <Reveal
-                key={city.name}
-                delay={i * 80}
-                className={`flex flex-col items-center gap-4 ${i % 2 === 1 ? "sm:mt-10" : ""}`}
+          {/* cities */}
+          {cities.map((c) => (
+            <motion.div
+              key={c.name}
+              initial={{ opacity: 0, y: 80 }}
+              whileInView={{ opacity: 1, y: 0, rotate: c.rot }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ scale: 1.05, rotate: 0, zIndex: 30 }}
+              className="absolute z-10 w-[16vw] max-md:relative max-md:left-auto max-md:top-auto max-md:mx-auto max-md:w-[55vw]"
+              style={{ left: c.left, top: c.top, rotate: `${c.rot}deg` }}
+            >
+              <p
+                className={`absolute -top-[2.4vw] z-20 font-modak text-[2vw] uppercase leading-none text-red text-stroke-small max-md:text-[5vw] ${c.labelSide === 'right' ? 'right-0' : 'left-0'}`}
               >
-                <div className="relative aspect-[4/5] w-full max-w-[140px] overflow-hidden rounded-md border-2 border-ink">
-                  <Image
-                    src={city.src}
-                    alt={city.alt}
-                    fill
-                    sizes="140px"
-                    className="object-cover"
-                  />
-                </div>
-                <p className="font-display text-xl tracking-wide text-ink sm:text-2xl">
-                  {city.name}˝
-                </p>
-              </Reveal>
-            ))}
-          </div>
+                {c.name}˝
+              </p>
+              <div className="relative h-[19vw] w-full overflow-hidden rounded-[1vw] border-[.5vw] border-white bg-white shadow-[0_10px_40px_rgba(0,0,0,0.2)] max-md:h-[68vw]">
+                <Image src={c.src} alt={c.name} fill className="object-cover" sizes="16vw" />
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </div>
-    </section>
-  );
+      </section>
+
+      <WaveDivider from="#ffd750" to="#f5e3cd" height="8vw" className="-mt-[1px]" />
+    </>
+  )
 }

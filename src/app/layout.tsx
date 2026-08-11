@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Modak, Mouse_Memoirs } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import LoadingScreen from "@/components/LoadingScreen";
-import SmoothScroll from "@/components/SmoothScroll";
+import Navbar from "@/components/Nav";
 import CustomCursor from "@/components/CustomCursor";
+import SmoothScroll from "@/components/SmoothScroll";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const modak = Modak({
   weight: "400",
@@ -22,25 +21,29 @@ const mouseMemoirs = Mouse_Memoirs({
 });
 
 export const metadata: Metadata = {
-  title: "ORAZEN | Artisan Smashed Burgers",
+  title: "ORAZEN — Smashed Fresh. Bold Flavor.",
   description:
-    "Smashed hot on the flat top, topped with melted cheddar and our signature chili honey glaze. Built & redesigned by orazen.online.",
+    "Smashed patties · toasted buns. 100% Organic. Zero Guilt. Built & redesigned by orazen.online.",
+  openGraph: {
+    title: "ORAZEN — Smashed Fresh. Bold Flavor.",
+    description: "Smashed for the bold, built for the hungry.",
+    images: ["/img-webp/burgerH.webp"],
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={`${modak.variable} ${mouseMemoirs.variable} h-full`}>
-      <body className="flex min-h-full flex-col bg-beige text-ink antialiased">
+    <html lang="en" className={`${modak.variable} ${mouseMemoirs.variable}`}>
+      <body>
         <LoadingScreen />
         <SmoothScroll>
           <CustomCursor />
-          <Nav />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <Navbar />
+          <main>{children}</main>
         </SmoothScroll>
       </body>
     </html>

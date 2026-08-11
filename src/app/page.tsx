@@ -1,17 +1,20 @@
-import Hero from "@/components/home/Hero";
-import TopClassic from "@/components/home/TopClassic";
-import Experience from "@/components/home/Experience";
-import TakeAway from "@/components/home/TakeAway";
-import FeelItCta from "@/components/FeelItCta";
+import HeroSection from '@/components/home/Hero'
+import TopClassicSection from '@/components/home/TopClassic'
+import ExperienceSection from '@/components/home/Experience'
+import TakeawaySection from '@/components/home/TakeAway'
+import FeelTheChange from '@/components/FeelItCta'
+import Footer from '@/components/Footer'
+import PageTransition from '@/components/PageTransition'
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-      <TopClassic />
-      <Experience />
-      <TakeAway />
-      <FeelItCta />
-    </>
-  );
+    <PageTransition>
+      <HeroSection />
+      <TopClassicSection />
+      <ExperienceSection />
+      <TakeawaySection />
+      <FeelTheChange />
+      <Footer />
+    </PageTransition>
+  )
 }
