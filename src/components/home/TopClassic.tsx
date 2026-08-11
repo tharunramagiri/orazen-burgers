@@ -16,7 +16,7 @@ export default function TopClassicSection() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section className="relative bg-beige px-[3vw] pb-[6vw] pt-[4vw] text-center">
+    <section id="about" className="relative bg-beige px-[3vw] pb-[6vw] pt-[4vw] text-center">
       {/* ORAZEN — section header (moved out of the hero) */}
       <motion.p
         initial={{ opacity: 0, y: 60 }}

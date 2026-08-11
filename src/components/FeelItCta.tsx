@@ -6,7 +6,7 @@ import OrderButton from '@/components/OrderButton'
 
 export default function FeelTheChange() {
   return (
-    <section className="relative overflow-hidden bg-beige px-[3vw] pt-[5vw] pb-[3vw] max-md:pb-[8vw]">
+    <section id="feelit" className="relative overflow-hidden bg-beige px-[3vw] pt-[5vw] pb-[3vw] max-md:pb-[8vw]">
       <div className="relative h-[60vw] max-md:h-auto">
         {/* Left: heading + body + button */}
         <div className="absolute left-0 top-[2vw] z-30 w-[40vw] max-md:static max-md:w-full">

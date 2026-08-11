@@ -5,6 +5,7 @@ import Link from "next/link";
 const overlayLinks = [
   { href: "/", label: "Home" },
   { href: "/#about", label: "About" },
+  { href: "/menu", label: "Burgers" },
   { href: "/spices", label: "Our Spices" },
   { href: "/#takeaway", label: "Locations" },
   { href: "/contact", label: "Contact" },

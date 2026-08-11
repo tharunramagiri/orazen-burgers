@@ -53,7 +53,7 @@ export default function TakeawaySection() {
     <>
       <WaveDivider from="#f5e3cd" to="#ffd750" height="8vw" className="-mb-[1px]" />
 
-      <section className="relative overflow-hidden bg-mustard px-[3vw] pb-[2vw] pt-[1vw]">
+      <section id="takeaway" className="relative overflow-hidden bg-mustard px-[3vw] pb-[2vw] pt-[1vw]">
         <motion.p
           initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
           whileInView={{ opacity: 1, scale: 1, rotate: -7 }}
