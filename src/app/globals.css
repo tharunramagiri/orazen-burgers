@@ -60,6 +60,22 @@ html.lenis, html.lenis body { height: auto; }
   line-height: 0.75;
 }
 
+
+/* heading600: ~25vw, leading .5 — the giant footer Modak heading */
+.heading600 {
+  font-family: var(--font-modak);
+  font-size: 25vw;
+  line-height: 0.5;
+}
+/* text60: ~2.6vw smaller display */
+.text60 {
+  font-size: 2.6vw;
+  line-height: 0.9;
+}
+@media (max-width: 768px) {
+  .text60 { font-size: 6vw; }
+}
+
 /* text40: ~1.8vw body copy */
 .text40 {
   font-size: 1.8vw;
