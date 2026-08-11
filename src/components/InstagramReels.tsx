@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import reelsData from "@/data/instagram-reels.json";
@@ -16,6 +16,42 @@ export default function InstagramReels() {
       behavior: "smooth",
     });
   };
+
+    // Auto-scroll animation
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let scrollPos = 0;
+    const speed = 0.5;
+    let animationId: number;
+
+    const autoScroll = () => {
+      if (!el) return;
+      scrollPos += speed;
+      if (scrollPos >= el.scrollWidth - el.clientWidth) {
+        scrollPos = 0;
+      }
+      el.scrollLeft = scrollPos;
+      animationId = requestAnimationFrame(autoScroll);
+    };
+
+    // Pause on hover
+    const pause = () => cancelAnimationFrame(animationId);
+    const resume = () => { animationId = requestAnimationFrame(autoScroll); };
+
+    el.addEventListener("mouseenter", pause);
+    el.addEventListener("mouseleave", resume);
+    el.addEventListener("touchstart", pause);
+    el.addEventListener("touchend", resume);
+
+    animationId = requestAnimationFrame(autoScroll);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+      el.removeEventListener("mouseenter", pause);
+      el.removeEventListener("mouseleave", resume);
+    };
+  }, []);
 
   return (
     <section className="relative overflow-hidden bg-beige px-[3vw] py-[6vw]">
