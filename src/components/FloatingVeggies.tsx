@@ -1,4 +1,4 @@
-"export default function FloatingVeggies() {
+export default function FloatingVeggies() {
   const veggies = [
     { src: "/img-webp/lettuce-sticker.png", className: "juggle-lettuce" },
     { src: "/img-webp/tomato-sticker.png", className: "juggle-tomato" },
@@ -13,11 +13,11 @@
           key={veg.className}
           src={veg.src}
           alt=""
-          className="w-[10vw] sm:w-[11vw] h-auto object-contain animate-float"
+          className="w-[10vw] sm:w-[11vw] h-auto object-contain"
           style={{
+            animation: `${veg.className} 4s ease-in-out infinite`,
             animationDelay: `${i * 0.4}s`,
-            "--tilt": `${(i - 1.5) * 6}deg`,
-          } as React.CSSProperties}
+          }}
           draggable={false}
         />
       ))}

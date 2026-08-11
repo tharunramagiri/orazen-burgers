@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue, useTransform } from "motion";
+import { useState } from "react";
 
 export default function StickerPeel({
   src,
@@ -16,84 +15,47 @@ export default function StickerPeel({
   rotate?: string;
   className?: string;
 }) {
-  const [peel, setPeel] = useState(0);
-  const springPeel = useSpring(peel, { stiffness: 90, damping: 12 });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setPeel((p) => (p >= 1 ? 1 : p + 0.02));
-    }, 50);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleHover = (amount: number) => {
-    setPeel(amount);
-  };
-
-  const clipRemaining = useTransform(
-    springPeel,
-    [0, 1],
-    [
-      "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      "polygon(0% 0%, 85% 0%, 85% 100%, 0% 100%)",
-    ]
-  );
-
-  const clipFlap = useTransform(
-    springPeel,
-    [0, 1],
-    [
-      "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
-      "polygon(85% 0%, 100% 0%, 100% 100%, 85% 100%)",
-    ]
-  );
-
-  const flapRotate = useTransform(springPeel, [0, 1], [0, -25]);
+  const [peeled, setPeeled] = useState(false);
 
   return (
     <div
-      className={`relative inline-block ${className}`}
+      className={`relative inline-block cursor-pointer select-none ${className}`}
       style={{ width, transform: `rotate(${rotate})` }}
-      onMouseEnter={() => handleHover(0.85)}
-      onMouseLeave={() => handleHover(0)}
+      onMouseEnter={() => setPeeled(true)}
+      onMouseLeave={() => setPeeled(false)}
     >
-      {/* Base layer - remaining stuck portion */}
-      <motion.div
-        className="relative drop-shadow-[0_12px_20px_rgba(0,0,0,0.3)]"
-        style={{ clipPath: clipRemaining }}
-      >
+      {/* Main sticker image with peel effect */}
+      <div className="relative drop-shadow-[0_12px_20px_rgba(0,0,0,0.3)] group">
         <img
           src={src}
           alt={alt}
-          className="w-full h-auto object-contain"
+          className="w-full h-auto object-contain transition-transform duration-300 ease-out group-hover:scale-105"
           draggable={false}
         />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%)",
-          }}
-        />
-      </motion.div>
 
-      {/* Peeling flap */}
-      <motion.div
-        className="absolute top-0 left-0 w-full"
-        style={{
-          clipPath: clipFlap,
-          transformOrigin: "left center",
-          rotateY: flapRotate,
-          filter: "brightness(0.92) drop-shadow(4px 4px 12px rgba(0,0,0,0.4))",
-        }}
-      >
-        <img
-          src={src}
-          alt={alt}
-          className="w-full h-auto object-contain scale-x-[-1]"
-          draggable={false}
-        />
-      </motion.div>
+        {/* Peel corner overlay */}
+        <div
+          className="absolute -top-1 -right-1 w-1/3 h-1/3 transition-all duration-300 ease-out origin-bottom-left"
+          style={{
+            transform: peeled
+              ? "rotate(-25deg) translate(8px, -8px)"
+              : "rotate(0deg) translate(0, 0)",
+            filter: peeled
+              ? "brightness(0.85) drop-shadow(3px 3px 8px rgba(0,0,0,0.4))"
+              : "brightness(1)",
+          }}
+        >
+          <img
+            src={src}
+            alt=""
+            className="w-full h-auto object-contain scale-x-[-1]"
+            draggable={false}
+          />
+        </div>
+
+        {/* Shine overlay */}
+        <div className="absolute inset-0 pointer-events-none rounded-[inherit] bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
     </div>
   );
 }

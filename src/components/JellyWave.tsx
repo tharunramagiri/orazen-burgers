@@ -1,4 +1,10 @@
-"export default function JellyWave({ color = "#f91814", opacity = 0.15 }: { color?: string; opacity?: number }) {
+export default function JellyWave({
+  color = "#f91814",
+  opacity = 0.15,
+}: {
+  color?: string;
+  opacity?: number;
+}) {
   return (
     <div className="z-10 w-full absolute left-0 right-0 top-0 overflow-x-clip pointer-events-none">
       <svg

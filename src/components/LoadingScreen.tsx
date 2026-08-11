@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
