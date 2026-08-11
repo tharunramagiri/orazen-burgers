@@ -34,7 +34,7 @@ const burgers = [
     prepTime: "15-20 min",
     bun: "POTATO",
     cheese: "AMERICAN",
-    sauce: "CRAVE SPECIAL",
+    sauce: "ORAZEN SPECIAL",
     calories: 690,
     protein: 32,
     image: "/img-webp/cheesyBurger.webp",
