@@ -17,7 +17,7 @@ export default function TopClassicSection() {
 
   return (
     <section className="relative bg-beige px-[3vw] pb-[6vw] pt-[4vw] text-center">
-      {/* CRAV — section header (moved out of the hero) */}
+      {/* ORAZEN — section header (moved out of the hero) */}
       <motion.p
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export default function TopClassicSection() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="mx-auto text-center font-modak text-[15vw] uppercase leading-[.8] text-mustard-dark max-md:text-[24vw]"
       >
-        CRAV
+        ORAZEN
       </motion.p>
 
       {/* label */}
@@ -86,7 +86,7 @@ export default function TopClassicSection() {
             style={{ marginTop: p.top, height: p.h }}
             className="relative w-[22vw] overflow-hidden rounded-[1vw] border-[.6vw] border-white bg-white shadow-[0_10px_40px_rgba(0,0,0,0.15)] max-md:!h-[70vw] max-md:w-[80vw]"
           >
-            <Image src={p.src} alt="CRAV burger" fill className="object-cover" sizes="22vw" />
+            <Image src={p.src} alt="ORAZEN burger" fill className="object-cover" sizes="22vw" />
           </motion.div>
         ))}
       </div>

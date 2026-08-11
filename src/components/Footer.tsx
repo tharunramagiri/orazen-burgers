@@ -8,7 +8,7 @@ const links = [
   { href: '/contact', label: 'Contact' },
 ];
 
-// Individual letters for the pop-up animation (like original CRAV)
+// Individual letters for the pop-up animation (matching original design)
 const letters = ['O', 'R', 'A', 'Z', 'E', 'N'];
 
 export default function Footer() {

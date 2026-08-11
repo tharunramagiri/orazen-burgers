@@ -39,7 +39,7 @@ export default function FeelTheChange() {
           transition={{ duration: 1 }}
           className="absolute right-0 top-[2vw] z-0 h-[58vw] w-[43vw] overflow-hidden rounded-[1vw] max-md:relative max-md:mt-[6vw] max-md:h-[90vw] max-md:w-full"
         >
-          <Image src="/img-webp/cta.webp" alt="Eating a CRAV burger" fill className="object-cover" sizes="43vw" />
+          <Image src="/img-webp/cta.webp" alt="Eating an ORAZEN burger" fill className="object-cover" sizes="43vw" />
         </motion.div>
 
         {/* Center illustration (burger-boy) — large, full height, head near top */}
@@ -51,7 +51,7 @@ export default function FeelTheChange() {
           whileHover={{ rotate: 3, scale: 1.03 }}
           className="absolute bottom-0 left-[26%] z-20 w-[47vw] max-md:left-1/2 max-md:w-[68vw] max-md:-translate-x-1/2"
         >
-          <Image src="/img/burger-boy.png" alt="CRAV burger boy" width={1024} height={1056} className="h-auto w-full drop-shadow-xl" />
+          <Image src="/img/burger-boy.png" alt="ORAZEN burger boy" width={1024} height={1056} className="h-auto w-full drop-shadow-xl" />
         </motion.div>
       </div>
     </section>
