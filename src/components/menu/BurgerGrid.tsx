@@ -1,176 +1,187 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { motion } from "framer-motion";
 
 const burgers = [
   {
     id: 1,
-    name: "Smoky Bacon Burger",
+    name: "Classic Burger",
     price: 16,
-    prepTime: "12-18 min",
-    bun: "BRIOCHE",
-    cheese: "CHEDDAR",
-    topping: "BACON",
-    calories: 760,
-    protein: 36,
-    image: "/img-webp/burger.webp",
+    bun: "Brioche",
+    patty: "Beef",
+    spice: "Mild",
+    prepTime: "10–12 min",
+    calories: 720,
+    protein: 32,
+    image: "/img-webp/burgerH.webp",
+    description: "The original ORAZEN smash — perfectly seared patty, melted cheddar, crispy edges.",
   },
   {
     id: 2,
-    name: "Spicy Jalapeño Burger",
+    name: "Spicy Jalapeño",
     price: 18,
-    prepTime: "10-15 min",
-    bun: "SESAME",
-    spice: "JALAPEÑO",
-    sauce: "CHIPOTLE",
-    calories: 710,
+    bun: "Brioche",
+    patty: "Beef",
+    spice: "Hot",
+    prepTime: "12–14 min",
+    calories: 810,
     protein: 34,
-    image: "/img-webp/burgerwithhands.webp",
+    image: "/img-webp/cheesyBurger.webp",
+    description: "Fiery jalapeños, pepper jack cheese, chipotle mayo on a toasted brioche.",
   },
   {
     id: 3,
-    name: "Classic Cheese Burger",
+    name: "Bacon Cheese Burger",
     price: 21,
-    prepTime: "15-20 min",
-    bun: "POTATO",
-    cheese: "AMERICAN",
-    sauce: "ORAZEN SPECIAL",
-    calories: 690,
-    protein: 32,
+    bun: "Brioche",
+    patty: "Beef",
+    spice: "Mild",
+    prepTime: "12–15 min",
+    calories: 900,
+    protein: 37,
+    image: "/img-webp/burgerwithhands.webp",
+    description: "Crispy smoked bacon, double cheddar, caramelized onions, smoky sauce.",
+  },
+  {
+    id: 4,
+    name: "Veggie Delight",
+    price: 15,
+    bun: "Sesame",
+    patty: "Veggie",
+    spice: "Mild",
+    prepTime: "10–12 min",
+    calories: 620,
+    protein: 17,
+    image: "/img-webp/burgerH.webp",
+    description: "House-made veggie patty, roasted peppers, avocado cream, micro herbs.",
+  },
+  {
+    id: 5,
+    name: "BBQ Ranch",
+    price: 19,
+    bun: "Brioche",
+    patty: "Beef",
+    spice: "Medium",
+    prepTime: "12–14 min",
+    calories: 870,
+    protein: 36,
     image: "/img-webp/cheesyBurger.webp",
+    description: "Smoky BBQ glaze, house ranch, crispy onion strings, cheddar.",
+  },
+  {
+    id: 6,
+    name: "Mushroom Swiss",
+    price: 20,
+    bun: "Brioche",
+    patty: "Beef",
+    spice: "Mild",
+    prepTime: "12–14 min",
+    calories: 830,
+    protein: 33,
+    image: "/img-webp/burgerwithhands.webp",
+    description: "Sautéed wild mushrooms, Swiss cheese, truffle aioli, fresh thyme.",
   },
 ];
 
+const spiceColor: Record<string, string> = {
+  Hot: "bg-red text-beige",
+  Medium: "bg-mustard-dark text-white",
+  Mild: "bg-green text-white",
+};
+
 export default function BurgerGrid() {
-  const [cartCount, setCartCount] = useState(0);
-
   return (
-    <section className="relative bg-red overflow-hidden pb-16">
-      {/* Wave top */}
-      <div className="w-full overflow-hidden leading-none">
-        <svg viewBox="0 0 1440 140" preserveAspectRatio="none" className="w-full h-[80px] sm:h-[120px]">
-          <path
-            fill="#f5e3cd"
-            d="M0,80 C200,20 400,120 650,60 C900,0 1150,120 1440,50 L1440,0 L0,0 Z"
-          />
-        </svg>
-      </div>
-
-      {/* Sticker decorations */}
-      <img
-        src="/img-webp/fries_sticker.png"
-        alt=""
-        className="absolute left-[5%] top-[8%] w-[10vw] opacity-80 max-md:w-[20vw] hidden sm:block"
-      />
-      <img
-        src="/img/burger-boy.png"
-        alt=""
-        className="absolute right-[5%] top-[12%] w-[12vw] opacity-80 max-md:w-[22vw] hidden sm:block"
-      />
-
+    <section className="relative bg-beige px-[3vw] pb-[6vw] pt-[3vw]">
       {/* Heading */}
-      <div className="text-center px-4 pt-2">
-        <p className="font-body text-[clamp(1.2rem,3vw,2rem)] uppercase tracking-[.15em] text-white/80">
-          OUR MENU
-        </p>
-        <h2 className="font-body text-[clamp(2.5rem,10vw,6rem)] uppercase leading-[.9] text-white mt-2">
-          SIGNATURE <br /> BURGERS
-        </h2>
-        <p className="font-body text-[clamp(1rem,2.5vw,1.5rem)] text-white/70 mt-3">
-          Every patty hand-crafted. Every bite unforgettable.
-        </p>
+      <div className="mb-[4vw] text-center">
+        <motion.p
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="inline-block -rotate-3 rounded-full bg-mustard px-[1.4vw] py-[.4vw] font-modak text-[2vw] uppercase leading-none text-red max-md:text-[5vw]"
+        >
+          The Best
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="mx-auto mt-[1vw] w-[80%] font-body text-[12vw] uppercase leading-[.78] text-red max-md:w-full max-md:text-[15vw]"
+          style={{
+            WebkitTextStroke: "1vw var(--color-white)",
+            paintOrder: "stroke fill",
+          }}
+        >
+          Our Finest Burger Picks
+        </motion.h1>
       </div>
 
-      {/* Cards */}
-      <div className="flex justify-center items-start gap-10 px-8 mt-8 max-md:flex-col max-md:px-4 max-md:gap-6">
-        {burgers.map((burger) => (
-          <div
-            key={burger.id}
-            className="relative w-full max-w-[380px] bg-white rounded-[40px] overflow-hidden group shadow-[0_10px_40px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-2"
+      {/* Cards grid */}
+      <div className="mx-auto grid max-w-[1500px] grid-cols-3 gap-[2vw] max-md:grid-cols-1">
+        {burgers.map((b, i) => (
+          <motion.div
+            key={b.id}
+            initial={{ opacity: 0, y: 70 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: (i % 3) * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -10 }}
+            className="group overflow-hidden rounded-[1.4vw] border-[.4vw] border-white bg-white shadow-[0_12px_40px_rgba(0,0,0,0.12)] max-md:rounded-[4vw]"
           >
-            {/* Add button */}
-            <button
-              onClick={() => setCartCount((c) => c + 1)}
-              className="absolute right-4 top-4 z-10 w-12 h-12 rounded-full bg-mustard text-ink font-bold text-2xl flex items-center justify-center transition-transform duration-200 hover:scale-110 hover:bg-mustard-dark"
-            >
-              +
-            </button>
-
-            {/* Product image */}
-            <div className="w-full h-[280px] pt-4 flex items-center justify-center">
+            {/* Image */}
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src={burger.image}
-                alt={burger.name}
-                width={260}
-                height={200}
-                className="object-contain h-full w-auto"
+                src={b.image}
+                alt={b.name}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width:768px) 100vw, 33vw"
               />
+              <span
+                className={`absolute right-[1vw] top-[1vw] rounded-full px-[1.2vw] py-[.3vw] font-body text-[1vw] uppercase tracking-[.1em] ${spiceColor[b.spice]} max-md:text-[3vw]`}
+              >
+                {b.spice}
+              </span>
             </div>
 
-            {/* Product details */}
-            <div className="flex justify-between items-center px-6 py-3">
-              <h3 className="font-body text-red text-2xl font-bold tracking-wide">{burger.name}</h3>
-              <span className="font-body text-2xl font-bold text-ink">${burger.price}</span>
-            </div>
-
-            {/* Description - visible on hover */}
-            <div className="border-t-2 border-black/20 mx-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 px-2 py-3">
-              <div className="flex justify-between items-center mb-2">
-                <span className="font-body text-xs uppercase tracking-wider text-ink/50">Quick detail</span>
-                <span className="font-body text-sm font-bold text-ink">{burger.prepTime}</span>
+            {/* Info */}
+            <div className="bg-beige p-[1.6vw] max-md:p-[5vw]">
+              <div className="flex items-baseline justify-between">
+                <h3 className="font-modak text-[2.2vw] uppercase leading-none text-red max-md:text-[7vw]">
+                  {b.name}
+                </h3>
+                <span className="font-modak text-[2vw] text-ink max-md:text-[6vw]">
+                  ${b.price}
+                </span>
               </div>
-
-              <div className="grid grid-cols-2 gap-2 mb-3">
-                <div>
-                  <span className="font-body text-[10px] uppercase tracking-wider text-ink/40">BUN</span>
-                  <p className="font-body text-sm font-bold text-ink">{burger.bun}</p>
-                </div>
-                {"cheese" in burger ? (
-                  <div>
-                    <span className="font-body text-[10px] uppercase tracking-wider text-ink/40">CHEESE</span>
-                    <p className="font-body text-sm font-bold text-ink">{burger.cheese}</p>
-                  </div>
-                ) : (
-                  <div>
-                    <span className="font-body text-[10px] uppercase tracking-wider text-ink/40">SPICE</span>
-                    <p className="font-body text-sm font-bold text-ink">{burger.spice}</p>
-                  </div>
-                )}
-                {"topping" in burger ? (
-                  <div>
-                    <span className="font-body text-[10px] uppercase tracking-wider text-ink/40">TOPPING</span>
-                    <p className="font-body text-sm font-bold text-ink">{burger.topping}</p>
-                  </div>
-                ) : (
-                  <div>
-                    <span className="font-body text-[10px] uppercase tracking-wider text-ink/40">SAUCE</span>
-                    <p className="font-body text-sm font-bold text-ink">{burger.sauce}</p>
-                  </div>
-                )}
-              </div>
-
-              <div className="flex gap-6 text-sm">
-                <span className="font-body text-ink/60">calories <strong className="text-ink">{burger.calories}</strong></span>
-                <span className="font-body text-ink/60">protein <strong className="text-ink">{burger.protein}g</strong></span>
+              <p className="mt-[.6vw] font-body text-[1.05vw] leading-[1.15] text-ink/70 max-md:text-[3.5vw]">
+                {b.description}
+              </p>
+              <div className="mt-[1vw] flex gap-[1.2vw] font-body text-[.95vw] uppercase text-ink/60 max-md:text-[3vw]">
+                <span>
+                  <strong className="text-ink">{b.calories}</strong> cal
+                </span>
+                <span>
+                  <strong className="text-ink">{b.protein}g</strong> protein
+                </span>
+                <span>
+                  <strong className="text-ink">{b.prepTime}</strong>
+                </span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      {/* Cart count badge */}
-      {cartCount > 0 && (
-        <div className="fixed bottom-6 right-6 z-50 bg-red text-white font-body font-bold text-lg px-5 py-3 rounded-full shadow-lg animate-bounce">
-          🛒 {cartCount} added
-        </div>
-      )}
-
-      {/* View full menu link */}
-      <div className="text-center mt-8 px-8">
-        <p className="font-body text-[clamp(1rem,2.5vw,1.5rem)] text-white/80 hover:text-mustard transition-colors cursor-pointer inline-flex items-center gap-2">
-          View Full Menu <span className="text-xl">→</span>
-        </p>
-        <hr className="w-32 mx-auto mt-2 border-white/30" />
+      {/* Burger boy decoration */}
+      <div className="pointer-events-none absolute -right-6 bottom-0 hidden w-40 opacity-90 lg:block xl:-right-2 xl:w-52">
+        <Image
+          src="/img/burger-boy.png"
+          alt=""
+          width={400}
+          height={412}
+          className="h-auto w-full object-contain"
+        />
       </div>
     </section>
   );
