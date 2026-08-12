@@ -18,7 +18,7 @@ export default function ExperienceSection() {
           whileInView={{ opacity: 1, scale: 1, rotate: -8 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, type: 'spring' }}
-          className="absolute left-[3vw] top-[3vw] z-20 w-[9vw] max-md:w-[18vw]"
+          className="absolute left-[3vw] top-[3vw] z-20 w-[9vw] max-md:w-[14vw]"
         >
           <Image src="/img/burger-boy.png" alt="" width={300} height={360} className="h-auto w-full" />
         </motion.div>
@@ -27,7 +27,7 @@ export default function ExperienceSection() {
           whileInView={{ opacity: 1, scale: 1, rotate: 8 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1, type: 'spring' }}
-          className="absolute right-[3vw] top-[3vw] z-20 w-[8vw] max-md:w-[16vw]"
+          className="absolute right-[3vw] top-[3vw] z-20 w-[8vw] max-md:w-[13vw]"
         >
           <Image src="/img/burgerselfie.png" alt="" width={300} height={400} className="h-auto w-full" />
         </motion.div>

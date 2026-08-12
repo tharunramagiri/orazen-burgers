@@ -14,7 +14,7 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative h-screen w-full overflow-hidden pt-[8vw] max-md:h-auto max-md:min-h-[170vw] max-md:pt-[36vw] max-md:pb-[8vw]"
+      className="relative h-screen w-full overflow-hidden pt-[8vw] max-md:h-auto max-md:min-h-[140vw] max-md:pt-[36vw] max-md:pb-[8vw]"
     >
       {/* faint eyebrow — top-right */}
       <p className="absolute right-[3vw] top-[8vw] z-30 font-mouse-memoirs text-[.9vw] uppercase tracking-[.2em] text-black/40 max-md:text-[3.5vw]">
@@ -36,7 +36,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, scale: 0, rotate: 0 }}
         animate={{ opacity: 1, scale: 1, rotate: 15 }}
         transition={{ duration: 0.5, delay: 0.6, type: 'spring' }}
-        className="absolute left-[10%] top-[16%] z-20 text-center font-modak text-[2.8vw] leading-[.9] text-mustard-dark text-stroke-180 max-md:left-[2%] max-md:top-[24%] max-md:rotate-0 max-md:text-[6vw]"
+        className="absolute left-[10%] top-[16%] z-20 text-center font-modak text-[2.8vw] leading-[.9] text-mustard-dark text-stroke-180 max-md:left-[4%] max-md:top-[18%] max-md:rotate-0 max-md:text-[6vw]"
       >
         SMASHED<br />FRESH
       </motion.p>
@@ -44,7 +44,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, scale: 0, rotate: 0 }}
         animate={{ opacity: 1, scale: 1, rotate: -15 }}
         transition={{ duration: 0.5, delay: 0.75, type: 'spring' }}
-        className="absolute right-[8%] top-[50%] z-20 text-center font-modak text-[2.8vw] leading-[.9] text-mustard-dark text-stroke-180 max-md:right-[2%] max-md:top-[40%] max-md:rotate-0 max-md:text-[6vw]"
+        className="absolute right-[8%] top-[50%] z-20 text-center font-modak text-[2.8vw] leading-[.9] text-mustard-dark text-stroke-180 max-md:right-[4%] max-md:top-[35%] max-md:rotate-0 max-md:text-[6vw]"
       >
         BOLD<br />FLAVOR
       </motion.p>
@@ -53,7 +53,7 @@ export default function HeroSection() {
           Nested: outer = scroll parallax, middle = entrance, inner = slow float loop. */}
       <motion.div
         style={{ y: burgerY }}
-        className="absolute left-1/2 top-[5vw] z-10 h-[60vh] w-fit -translate-x-1/2 max-md:top-[50vw] max-md:h-auto max-md:w-[80vw]"
+        className="absolute left-1/2 top-[5vw] z-10 h-[60vh] w-fit -translate-x-1/2 max-md:top-[55vw] max-md:h-auto max-md:w-[80vw]"
       >
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -76,7 +76,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.9 }}
-        className="absolute bottom-[3vw] left-[3vw] z-20 w-[23vw] font-mouse-memoirs leading-none text40 max-md:static max-md:mt-[4vw] max-md:w-full max-md:px-[5vw] max-md:text-center"
+        className="absolute bottom-[3vw] left-[3vw] z-20 w-[23vw] font-mouse-memoirs leading-none text40 max-md:static max-md:mt-[6vw] max-md:w-full max-md:px-[6vw] max-md:text-center"
       >
         Smashed hot on the flat top, our prime patties lock in ultimate juiciness and flavor — a caramelized crust.
       </motion.p>

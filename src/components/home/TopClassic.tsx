@@ -43,7 +43,7 @@ export default function TopClassicSection() {
       <RevealWords
         as="h2"
         text="juicy cheesy fully Loaded"
-        className="mx-auto w-[70%] font-mouse-memoirs text-[15vw] uppercase leading-[.75] text-red text-stroke-180 max-md:w-full max-md:text-[18vw]"
+        className="mx-auto w-[70%] font-mouse-memoirs text-[15vw] uppercase leading-[.85] text-red text-stroke-180 max-md:w-full max-md:text-[18vw] max-md:leading-[.85]"
         stagger={0.09}
       />
 
