@@ -27,7 +27,7 @@ const burgers = [
     calories: 810,
     protein: 34,
     image: "/img-webp/cheesyBurger.webp",
-    description: "Fiery jalapeños, pepper jack cheese, chipotle mayo on a toasted brioche.",
+    description: "Jalapeños piccanti, formaggio fuso, maionese al chipotle su pan brioche tostato. Per chi ama il piccante!",
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const burgers = [
     calories: 900,
     protein: 37,
     image: "/img-webp/burgerwithhands.webp",
-    description: "Crispy smoked bacon, double cheddar, caramelized onions, smoky sauce.",
+    description: "Doppio bacon croccante affumicato, doppio cheddar, cipolle caramellate e salsa BBQ affumicata.",
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const burgers = [
     calories: 620,
     protein: 17,
     image: "/img-webp/burgerH.webp",
-    description: "House-made veggie patty, roasted peppers, avocado cream, micro herbs.",
+    description: "Burger vegetariano artigianale con verdure grigliate, crema di avocado ed erbe fresche.",
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ const burgers = [
     calories: 870,
     protein: 36,
     image: "/img-webp/cheesyBurger.webp",
-    description: "Smoky BBQ glaze, house ranch, crispy onion strings, cheddar.",
+    description: "Glassa BBQ affumicata, ranch della casa, cipolle croccanti e cheddar fuso.",
   },
   {
     id: 6,
@@ -79,7 +79,7 @@ const burgers = [
     calories: 830,
     protein: 33,
     image: "/img-webp/burgerwithhands.webp",
-    description: "Sautéed wild mushrooms, Swiss cheese, truffle aioli, fresh thyme.",
+    description: "Funghi selvatici saltati, formaggio svizzero, aioli al tartufo e timo fresco.",
   },
 ];
 

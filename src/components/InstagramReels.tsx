@@ -71,7 +71,7 @@ export default function InstagramReels() {
             viewport={{ once: true }}
             className="mt-[.5vw] font-body text-[6vw] uppercase leading-[.85] text-ink max-md:text-[10vw]"
           >
-            @Crazy Smash
+            @crazysmash_caserta
           </motion.h2>
         </div>
 

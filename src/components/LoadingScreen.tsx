@@ -62,7 +62,7 @@ export default function LoadingScreen() {
         <div className="relative w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] flex items-center justify-center">
           <div className="animate-spin-slow">
             <img
-              src="/img/burger-boy.png"
+              src="/img/logo.png"
               alt="Spinning Crazy Smash logo"
               className="w-full h-full object-contain"
               draggable={false}
