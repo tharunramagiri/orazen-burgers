@@ -9,7 +9,7 @@ export default function MenuHero() {
       <section className="relative h-[70vh] w-full overflow-hidden bg-black">
         <Image
           src="/img-webp/cheesyBurger.webp"
-          alt="ORAZEN signature burger"
+          alt="Crazy Smash signature burger"
           fill
           priority
           className="object-cover object-center opacity-90"

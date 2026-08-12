@@ -95,7 +95,7 @@ export default function ExperienceSection() {
           >
             <Image
               src="/img-webp/burgerwithhands.webp"
-              alt="ORAZEN burger with hands"
+              alt="Crazy Smash burger with hands"
               width={1200}
               height={900}
               className="h-auto w-full select-none"
@@ -111,7 +111,7 @@ export default function ExperienceSection() {
       <section className="relative h-[76vw] w-full overflow-hidden max-md:h-[100vw]">
         <Image
           src="/img-webp/cheesyBurger.webp"
-          alt="ORAZEN cheesy burger"
+          alt="Crazy Smash cheesy burger"
           fill
           className="object-cover object-center"
           sizes="100vw"

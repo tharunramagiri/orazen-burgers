@@ -18,7 +18,7 @@ export default function HeroSection() {
     >
       {/* faint eyebrow — top-right */}
       <p className="absolute right-[3vw] top-[8vw] z-30 font-mouse-memoirs text-[.9vw] uppercase tracking-[.2em] text-black/40 max-md:text-[3.5vw]">
-        Built & redesigned by orazen.online
+        📍 Caserta, Italia crazysmash.it
       </p>
 
       {/* THE BURGER — single full-width line, top */}
@@ -66,7 +66,7 @@ export default function HeroSection() {
             transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
             className="h-full will-change-transform max-md:h-auto"
           >
-            <Image src="/img-webp/burgerH.webp" alt="ORAZEN burger" width={700} height={700} className="h-full w-auto select-none rounded-[1.5vw] max-md:h-auto max-md:w-full" priority />
+            <Image src="/img-webp/burgerH.webp" alt="Crazy Smash burger" width={700} height={700} className="h-full w-auto select-none rounded-[1.5vw] max-md:h-auto max-md:w-full" priority />
           </motion.div>
         </motion.div>
       </motion.div>
@@ -86,7 +86,7 @@ export default function HeroSection() {
         transition={{ duration: 0.7, delay: 1 }}
         className="absolute bottom-[3vw] right-[3vw] z-20 w-[23vw] text-right font-mouse-memoirs leading-none text40 max-md:static max-md:mt-[2vw] max-md:w-full max-md:px-[5vw] max-md:text-center"
       >
-        Topped with melted cheddar and our signature chili honey glaze, crafted fresh to satisfy your craving by orazen.online.
+        Topped with melted cheddar and our signature chili honey glaze, crafted fresh to satisfy your craving by crazysmash.it.
       </motion.p>
     </section>
   )

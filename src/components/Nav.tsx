@@ -8,6 +8,7 @@ const overlayLinks = [
   { href: "/menu", label: "Burgers" },
   { href: "/spices", label: "Our Spices" },
   { href: "/#takeaway", label: "Locations" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -22,7 +23,7 @@ export default function Navbar() {
           href="/"
           className="font-modak hover:scale-105 transition-all duration-300 text-red [-webkit-text-stroke:clamp(1px,0.34vw,4px)_var(--color-white)] text-[4vw] max-md:text-[10vw] leading-none"
         >
-          ORAZEN
+          Crazy Smash
         </Link>
 
         <div className="flex items-center gap-[1vw] max-md:gap-[3vw]">
@@ -92,7 +93,7 @@ export default function Navbar() {
               </div>
               <div className="mt-[1.5vw] max-md:mt-[4vw] pt-[1vw] max-md:pt-[3vw] border-t border-beige/20">
                 <p className="font-body text-[.9vw] max-md:text-[3.5vw] text-beige/85 uppercase tracking-[.2em]">
-                  Built & redesigned by orazen.online
+                  📍 Caserta, Italia crazysmash.it
                 </p>
               </div>
             </div>

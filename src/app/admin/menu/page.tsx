@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const initialBurgers = [
-  { id: 1, name: "Classic Burger", price: 16, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "10–12 min", calories: 720, protein: 32, image: "/img-webp/burgerH.webp", description: "The original ORAZEN smash." },
+  { id: 1, name: "Classic Burger", price: 16, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "10–12 min", calories: 720, protein: 32, image: "/img-webp/burgerH.webp", description: "The original Crazy Smash." },
   { id: 2, name: "Spicy Jalapeño", price: 18, bun: "Brioche", patty: "Beef", spice: "Hot", prepTime: "12–14 min", calories: 810, protein: 34, image: "/img-webp/cheesyBurger.webp", description: "Fiery jalapeños, pepper jack." },
   { id: 3, name: "Bacon Cheese Burger", price: 21, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "12–15 min", calories: 900, protein: 37, image: "/img-webp/burgerwithhands.webp", description: "Crispy smoked bacon, double cheddar." },
   { id: 4, name: "Veggie Delight", price: 15, bun: "Sesame", patty: "Veggie", spice: "Mild", prepTime: "10–12 min", calories: 620, protein: 17, image: "/img-webp/burgerH.webp", description: "House-made veggie patty." },

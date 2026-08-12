@@ -10,7 +10,7 @@ export default function SpicesHero() {
       <section className="relative h-[70vh] w-full overflow-hidden bg-black">
         <Image
           src="/img-webp/spices.webp"
-          alt="Fresh ORAZEN ingredients"
+          alt="Fresh Crazy Smash ingredients"
           fill
           priority
           className="object-cover object-center"

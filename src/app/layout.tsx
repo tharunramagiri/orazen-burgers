@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import LoadingScreen from "@/components/LoadingScreen";
 import ToastProvider from "@/components/Toast";
 import Footer from "@/components/Footer";
+import LanguageProvider from "@/components/LanguageProvider";
 
 const modak = Modak({
   weight: "400",
@@ -23,17 +24,17 @@ const mouseMemoirs = Mouse_Memoirs({
 });
 
 export const metadata: Metadata = {
-  title: "ORAZEN — Smashed Fresh. Bold Flavor.",
+  title: "Crazy Smash — Schiacciato Fresco. Sapore Audace.",
   description:
-    "Smashed patties · toasted buns. 100% Organic. Zero Guilt. Built & redesigned by orazen.online.",
+    "Smashed patties · toasted buns. 100% Organic. Zero Guilt. 📍 Caserta, Italia crazysmash.it.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "ORAZEN",
+    title: "Crazy Smash",
   },
   openGraph: {
-    title: "ORAZEN — Smashed Fresh. Bold Flavor.",
+    title: "Crazy Smash — Schiacciato Fresco. Sapore Audace.",
     description: "Smashed for the bold, built for the hungry.",
     images: ["/img-webp/burgerH.webp"],
   },
@@ -49,6 +50,7 @@ export default function RootLayout({
     <html lang="en" className={`${modak.variable} ${mouseMemoirs.variable}`}>
       <body>
         <LoadingScreen />
+        <LanguageProvider>
         <ToastProvider>
           <SmoothScroll>
             <CustomCursor />
@@ -57,6 +59,7 @@ export default function RootLayout({
             <Footer />
           </SmoothScroll>
         </ToastProvider>
+      </LanguageProvider>
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const ADMIN_PASSWORD = "orazen2026";
+const ADMIN_PASSWORD = "crazysmash2026";
 
 const navItems = [
   { href: "/admin", label: "Dashboard", icon: "📊" },
@@ -47,7 +47,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="w-full max-w-sm rounded-[2vw] border-2 border-ink bg-white p-[4vw] shadow-[0_15px_50px_rgba(0,0,0,0.15)] max-md:mx-4">
           <div className="text-center">
             <div className="mx-auto w-16 h-16 animate-float">
-              <img src="/img/burger-boy.png" alt="ORAZEN" className="w-full h-full object-contain" />
+              <img src="/img/burger-boy.png" alt="Crazy Smash" className="w-full h-full object-contain" />
             </div>
             <h1 className="mt-4 font-modak text-[3vw] uppercase text-red max-md:text-[8vw]">Admin</h1>
             <p className="mt-1 font-body text-[.9vw] text-ink/40 max-md:text-[3.5vw]">Enter password to continue</p>
@@ -85,7 +85,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <aside className="fixed inset-y-0 left-0 z-40 w-[14vw] shrink-0 border-r-2 border-ink/10 bg-white p-[1.5vw] flex flex-col max-md:hidden">
         <Link href="/" className="block" title="View site">
           <div className="font-modak text-[2.5vw] leading-none text-red hover:text-ink transition-colors">
-            ORAZEN
+            Crazy Smash
           </div>
         </Link>
         <p className="mt-1 font-body text-[.65vw] uppercase tracking-[.2em] text-ink/30">Admin Panel</p>
@@ -126,7 +126,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Mobile Header */}
       <div className="hidden max-md:block fixed top-0 inset-x-0 z-40 bg-white border-b-2 border-ink/10 px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link href="/" className="font-modak text-2xl text-red">ORAZEN</Link>
+          <Link href="/" className="font-modak text-2xl text-red">Crazy Smash</Link>
           <div className="flex items-center gap-3">
             <span className="font-body text-xs font-bold text-ink/30 uppercase tracking-widest">Admin</span>
             <button

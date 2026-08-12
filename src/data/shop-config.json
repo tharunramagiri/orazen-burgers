@@ -1,26 +1,27 @@
 {
   "shop": {
-    "name": "ORAZEN Burgers",
-    "tagline": "Artisan Smashed Burgers",
+    "name": "Crazy Smash Caserta",
+    "tagline": "Schiacciato Fresco. Sapore Audace.",
     "logo": "/img/burger-boy.png",
-    "description": "Smashed hot on the flat top, topped with melted cheddar and our signature chili honey glaze.",
-    "phone": "+1 (555) 123-4567",
-    "email": "hello@orazen.online",
-    "address": "123 Burger Street, Foodie District, NY 10001",
+    "description": "Smashed hot on the flat top, topped with melted cheddar. Artisan burgers in the heart of Caserta.",
+    "phone": "+39 351 776 8419",
+    "email": "info@crazysmash.it",
+    "address": "Via Giuseppe Verdi, 15, 81100 Caserta CE, Italia",
     "hours": {
-      "monday": "11:00 AM - 10:00 PM",
-      "tuesday": "11:00 AM - 10:00 PM",
-      "wednesday": "11:00 AM - 10:00 PM",
-      "thursday": "11:00 AM - 11:00 PM",
-      "friday": "11:00 AM - 12:00 AM",
-      "saturday": "10:00 AM - 12:00 AM",
-      "sunday": "10:00 AM - 9:00 PM"
+      "luned\u00ec": "12:00 - 15:00, 19:00 - 23:00",
+      "marted\u00ec": "12:00 - 15:00, 19:00 - 23:00",
+      "mercoled\u00ec": "12:00 - 15:00, 19:00 - 23:00",
+      "gioved\u00ec": "12:00 - 15:00, 19:00 - 23:00",
+      "venerd\u00ec": "12:00 - 15:00, 19:00 - 00:00",
+      "sabato": "12:00 - 00:00",
+      "domenica": "12:00 - 23:00"
     },
     "social": {
-      "instagram": "https://instagram.com/orazenburgers",
-      "facebook": "https://facebook.com/orazenburgers",
-      "twitter": "https://twitter.com/orazenburgers"
+      "instagram": "https://instagram.com/crazysmash_caserta",
+      "facebook": "https://facebook.com/crazysmashcaserta",
+      "tiktok": "https://tiktok.com/@crazysmash_caserta",
+      "tripadvisor": "https://www.tripadvisor.it/Restaurant_Review-g194713-d34411587-Reviews-Crazy_Smash_Caserta-Caserta_Province_of_Caserta_Campania.html"
     },
-    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343008!2d-73.9857!3d40.7484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ0JzU0LjIiTiA3M8KwNTknMDguNSJX!5e0!3m2!1sen!2sus!4v1"
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.5!2d14.3333!3d41.0833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA1JzAwLjAiTiAxNMKwMjAnMDAuMCJF!5e0!3m2!1sit!2sit!4v1"
   }
 }

@@ -135,19 +135,19 @@ export default function BookingsAdmin() {
         </p>
         <div className="mt-4 rounded-[.5vw] border-2 border-ink/10 bg-beige p-[1.5vw] max-md:p-4">
           <div className="text-center">
-            <p className="font-modak text-[2vw] uppercase text-red max-md:text-[6vw]">ORAZEN</p>
+            <p className="font-modak text-[2vw] uppercase text-red max-md:text-[6vw]">Crazy Smash</p>
             <p className="font-body text-[.8vw] text-ink/50 max-md:text-[3vw]">🍔 Your table is reserved!</p>
           </div>
           <div className="mt-4 space-y-2 font-body text-[.8vw] text-ink max-md:text-[3.5vw]">
             <p>Hi <strong>{`{name}`}</strong>,</p>
-            <p>Your booking at ORAZEN Burgers is confirmed:</p>
+            <p>Your booking at Crazy Smash is confirmed:</p>
             <div className="my-3 rounded-[.5vw] bg-white p-3 space-y-1">
               <p>📅 <strong>Date:</strong> {`{date}`}</p>
               <p>⏰ <strong>Time:</strong> {`{time}`}</p>
               <p>👥 <strong>Guests:</strong> {`{guests}`}</p>
             </div>
             <p>📍 <strong>Location:</strong> 123 Burger Street, Foodie District, NY 10001</p>
-            <p className="mt-4 text-ink/40 text-[.7vw] max-md:text-[3vw]">Smashed patties · toasted buns · built by orazen.online</p>
+            <p className="mt-4 text-ink/40 text-[.7vw] max-md:text-[3vw]">Smashed patties · toasted buns · built by crazysmash.it</p>
           </div>
           <div className="mt-4 flex justify-center gap-4">
             {["🌶️", "🧅", "🍅", "🥬", "🍔", "🧀"].map((e, i) => (

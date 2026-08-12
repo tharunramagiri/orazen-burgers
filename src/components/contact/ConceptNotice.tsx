@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "orazen-concept-notice-dismissed";
+const STORAGE_KEY = "crazysmash-concept-notice-dismissed";
 
 export default function ConceptNotice() {
   // Starts closed to match SSR output; the effect below is a one-time read of
@@ -44,14 +44,14 @@ export default function ConceptNotice() {
           Notice
         </p>
         <h2 id="concept-notice-title" className="mt-2 font-display text-3xl tracking-wide text-ink">
-          ORAZEN Burgers — Concept Site
+          Crazy Smash — Concept Site
         </h2>
         <p className="mt-4 font-body text-sm leading-relaxed text-ink/80">
           This is a concept website created by Orazen Online. If you are
           looking for brand design and development like this, you can reach
           out to us at{" "}
-          <a href="mailto:hello@orazen.online" className="font-bold text-ink underline">
-            hello@orazen.online
+          <a href="mailto:hello@crazysmash.it" className="font-bold text-ink underline">
+            hello@crazysmash.it
           </a>
           .
         </p>

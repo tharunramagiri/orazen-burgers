@@ -71,12 +71,12 @@ export default function InstagramReels() {
             viewport={{ once: true }}
             className="mt-[.5vw] font-body text-[6vw] uppercase leading-[.85] text-ink max-md:text-[10vw]"
           >
-            @ORAZEN
+            @Crazy Smash
           </motion.h2>
         </div>
 
         <a
-          href="https://instagram.com/orazenburgers"
+          href="https://instagram.com/crazysmash_caserta"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden rounded-full bg-red px-[2vw] py-[.8vw] font-body text-[1.1vw] font-bold uppercase tracking-[.08em] text-white transition-transform hover:scale-105 sm:inline-block max-md:text-[3vw] max-md:px-[5vw] max-md:py-[2vw]"
@@ -149,7 +149,7 @@ export default function InstagramReels() {
       {/* Mobile follow button */}
       <div className="mt-[4vw] text-center sm:hidden">
         <a
-          href="https://instagram.com/orazenburgers"
+          href="https://instagram.com/crazysmash_caserta"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block rounded-full bg-red px-[6vw] py-[3vw] font-body text-[4vw] font-bold uppercase tracking-[.08em] text-white"

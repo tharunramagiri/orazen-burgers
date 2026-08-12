@@ -1,10 +1,40 @@
 {
   "reels": [
-    { "id": 1, "image": "/img-webp/about-1.webp", "caption": "Fresh smashed patties every day 🍔", "link": "https://instagram.com/orazenburgers" },
-    { "id": 2, "image": "/img-webp/about-2.webp", "caption": "That cheese pull though 🧀", "link": "https://instagram.com/orazenburgers" },
-    { "id": 3, "image": "/img-webp/about-3.webp", "caption": "Come hungry, leave happy 😋", "link": "https://instagram.com/orazenburgers" },
-    { "id": 4, "image": "/img-webp/burgerwithhands.webp", "caption": "Double stack Saturdays 🔥", "link": "https://instagram.com/orazenburgers" },
-    { "id": 5, "image": "/img-webp/cheesyBurger.webp", "caption": "The ORAZEN classic 💯", "link": "https://instagram.com/orazenburgers" },
-    { "id": 6, "image": "/img-webp/cta.webp", "caption": "Date night burgers 🕯️", "link": "https://instagram.com/orazenburgers" }
+    {
+      "id": 1,
+      "image": "/img-webp/about-1.webp",
+      "caption": "Smashed fresco ogni giorno \ud83c\udf54",
+      "link": "https://instagram.com/crazysmash_caserta"
+    },
+    {
+      "id": 2,
+      "image": "/img-webp/about-2.webp",
+      "caption": "Il formaggio che fila \ud83e\uddc0",
+      "link": "https://instagram.com/crazysmash_caserta"
+    },
+    {
+      "id": 3,
+      "image": "/img-webp/about-3.webp",
+      "caption": "Vieni affamato, vai felice \ud83d\ude0b",
+      "link": "https://instagram.com/crazysmash_caserta"
+    },
+    {
+      "id": 4,
+      "image": "/img-webp/burgerwithhands.webp",
+      "caption": "Doppio smash sabato \ud83d\udd25",
+      "link": "https://instagram.com/crazysmash_caserta"
+    },
+    {
+      "id": 5,
+      "image": "/img-webp/cheesyBurger.webp",
+      "caption": "Il Crazy Smash classico \ud83d\udcaf",
+      "link": "https://instagram.com/crazysmash_caserta"
+    },
+    {
+      "id": 6,
+      "image": "/img-webp/cta.webp",
+      "caption": "Serata burger a lume di candela \ud83d\udd6f\ufe0f",
+      "link": "https://instagram.com/crazysmash_caserta"
+    }
   ]
 }

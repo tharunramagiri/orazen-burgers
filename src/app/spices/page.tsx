@@ -4,7 +4,7 @@ import IngredientsSection from "@/components/spices/IngredientsSection";
 import PhilosophySection from "@/components/spices/PhilosophySection";
 
 export const metadata: Metadata = {
-  title: "Our Spices & Ingredients | ORAZEN Burgers",
+  title: "Our Spices & Ingredients | Crazy Smash",
 };
 
 export default function SpicesPage() {

@@ -63,7 +63,7 @@ export default function LoadingScreen() {
           <div className="animate-spin-slow">
             <img
               src="/img/burger-boy.png"
-              alt="Spinning ORAZEN logo"
+              alt="Spinning Crazy Smash logo"
               className="w-full h-full object-contain"
               draggable={false}
             />

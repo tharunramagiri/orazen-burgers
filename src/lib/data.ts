@@ -12,7 +12,7 @@ export const burgers: Burger[] = [
     calories: 720,
     protein: 32,
     image: '/img-webp/burgerH.webp',
-    description: 'The original ORAZEN smash — perfectly seared patty, melted cheddar, crispy edges.',
+    description: 'The original Crazy Smash — perfectly seared patty, melted cheddar, crispy edges.',
   },
   {
     id: 2,
