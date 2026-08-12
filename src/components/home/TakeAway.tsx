@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import RevealWords from "@/components/RevealWords";
 import WaveDivider from "@/components/WaveDivider";
 
 const FLIGHT_PATH =
@@ -53,9 +52,10 @@ export default function TakeawaySection() {
     <>
       <WaveDivider from="#f5e3cd" to="#ffd750" height="8vw" className="-mb-[1px]" />
 
-      <section id="takeaway" className="relative overflow-hidden bg-mustard px-[3vw] pb-[2vw] pt-[1vw]">
+      <section id="takeaway" className="relative overflow-hidden bg-mustard px-[3vw] pb-[8vw] pt-[4vw] max-md:pb-[12vw]">
+        {/* "Take Away" badge */}
         <motion.p
-          initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1, rotate: -7 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -64,28 +64,38 @@ export default function TakeawaySection() {
           Take Away
         </motion.p>
 
-        <RevealWords
-          as="h2"
-          text="Quality That Travels With You"
-          className="w-[80vw] font-body text-[15vw] uppercase leading-[.85] text-white [-webkit-text-stroke:1vw_rgba(244,168,4,0.3)] max-md:w-full max-md:text-[14vw]"
-          stagger={0.06}
-        />
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
+        {/* Heading - single line, no duplicate */}
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="ml-[1vw] mt-[1vw] w-[30vw] font-body leading-[1.1] text-black text-[1.8vw] max-md:w-[90%] max-md:text-[4.2vw]"
+          transition={{ duration: 0.7 }}
+          className="mt-[1vw] font-body text-[15vw] uppercase leading-[.85] text-white max-md:text-[16vw] max-md:leading-[.9]"
+          style={{
+            WebkitTextStroke: "1vw rgba(244,168,4,0.3)",
+            paintOrder: "stroke fill",
+          }}
         >
-          Freshly packed smash burgers, ready to go wherever you crave. From our flat top to
-          your hands, in every city we land.
+          Quality That Travels With You
+        </motion.h2>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mt-[1.5vw] max-w-[500px] font-body text-[1.8vw] leading-[1.15] text-ink/80 max-md:mt-[3vw] max-md:max-w-full max-md:text-[4vw]"
+        >
+          Freshly packed smash burgers, ready to go wherever you crave. From our flat top to your hands, in every city we land.
         </motion.p>
 
-        <div ref={zoneRef} className="relative mt-[4vw] h-[112vw] max-md:h-auto max-md:space-y-[6vw]">
+        {/* Desktop: flight path + absolute cities */}
+        <div ref={zoneRef} className="relative mt-[4vw] h-[112vw] max-md:hidden">
+          {/* Dashed path */}
           <svg
             ref={svgRef}
-            className="absolute inset-0 h-full w-full max-md:hidden"
+            className="absolute inset-0 h-full w-full"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
             fill="none"
@@ -101,34 +111,63 @@ export default function TakeawaySection() {
             />
           </svg>
 
+          {/* Plane */}
           <div
             ref={planeRef}
-            className="absolute left-0 top-0 z-20 w-[6vw] text-red drop-shadow will-change-transform max-md:hidden"
+            className="absolute left-0 top-0 z-20 w-[6vw] text-red drop-shadow will-change-transform"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-auto w-full rotate-90">
               <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" />
             </svg>
           </div>
 
+          {/* Cities - absolute positioned */}
           {cities.map((c) => (
             <motion.div
               key={c.name}
-              initial={{ opacity: 0, y: 80 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0, rotate: c.rot }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ scale: 1.05, rotate: 0, zIndex: 30 }}
-              className="absolute z-10 w-[16vw] max-md:relative max-md:left-auto max-md:top-auto max-md:mx-auto max-md:w-[55vw]"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute z-10 w-[16vw]"
               style={{ left: c.left, top: c.top, rotate: `${c.rot}deg` }}
             >
-              <p
-                className={`absolute -top-[2.4vw] z-20 font-modak text-[2vw] uppercase leading-none text-red [-webkit-text-stroke:0.34vw_var(--color-white)] max-md:text-[5vw] ${c.labelSide === "right" ? "right-0" : "left-0"}`}
-                style={{ paintOrder: "stroke fill" }}
+              <p className={`absolute -top-[2.4vw] z-20 font-modak text-[2vw] uppercase leading-none text-red ${c.labelSide === "right" ? "right-0" : "left-0"}`}
+                style={{
+                  WebkitTextStroke: "0.34vw var(--color-white)",
+                  paintOrder: "stroke fill",
+                }}
               >
                 {c.name}˝
               </p>
-              <div className="relative h-[19vw] w-full overflow-hidden rounded-[1vw] border-[.5vw] border-white bg-white shadow-[0_10px_40px_rgba(0,0,0,0.2)] max-md:h-[68vw]">
+              <div className="relative h-[19vw] w-full overflow-hidden rounded-[1vw] border-[.5vw] border-white bg-white shadow-[0_10px_40px_rgba(0,0,0,0.2)]">
                 <Image src={c.src} alt={c.name} fill className="object-cover" sizes="16vw" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile: vertical stacked cards */}
+        <div className="hidden max-md:flex max-md:flex-col max-md:gap-[5vw] max-md:mt-[6vw]">
+          {cities.map((c, i) => (
+            <motion.div
+              key={c.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="flex items-center gap-[4vw]"
+            >
+              <div className="relative h-[20vw] w-[45vw] shrink-0 overflow-hidden rounded-[2vw] border-[1vw] border-white shadow-lg">
+                <Image src={c.src} alt={c.name} fill className="object-cover" sizes="45vw" />
+              </div>
+              <div className="flex-1">
+                <p className="font-modak text-[7vw] uppercase leading-none text-red"
+                  style={{ WebkitTextStroke: "1px var(--color-white)", paintOrder: "stroke fill" }}
+                >
+                  {c.name}
+                </p>
+                <p className="mt-1 font-body text-[3.5vw] text-ink/60">📍 Takeaway available</p>
               </div>
             </motion.div>
           ))}
