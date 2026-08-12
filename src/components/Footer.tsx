@@ -72,17 +72,21 @@ export default function Footer() {
       {/* Tagline */}
       <div className="relative z-30 max-md:hidden pt-[1vw] opacity-80 max-md:pt-[4vw] px-[2.5vw]">
         <p className="text-[1.8vw] leading-[1.1] max-md:text-[4.2vw] uppercase font-body text-ink">
-          Smashed patties · toasted buns · built by crazysmash.it
+          Smashed patties · toasted buns · built by orazen.online
         </p>
       </div>
 
-      {/* Giant Crazy Smash Logo */}
-      <div className="mt-[10vw] relative min-h-[18vw] max-md:mt-[5vw] flex justify-center">
-        <img
-          src="/img/logo.png"
-          alt="Crazy Smash"
-          className="w-[50vw] max-w-[600px] h-auto object-contain translate-y-[5vw] max-md:translate-y-0 max-md:w-[70vw]"
-        />
+      {/* Giant Crazy Smash */}
+      <div className="mt-[10vw] relative min-h-[18vw] max-md:mt-[5vw]">
+        <h2 className="text-center text-red z-10 relative font-modak text-[15vw] uppercase leading-[.5] translate-y-[5vw] max-md:translate-y-0"
+          style={{
+            WebkitTextStroke: 'clamp(1px, 1vw, 16px) var(--color-white)',
+            paintOrder: 'stroke fill',
+          }}
+        >
+          <span className="sr-only">Crazy Smash</span>
+          <span aria-hidden="true">Crazy Smash</span>
+        </h2>
 
         {/* Mobile */}
         <div className="relative hidden max-md:block z-30 mt-[10vw] px-[2.5vw]">
@@ -91,7 +95,7 @@ export default function Footer() {
         <div className="relative z-30 pt-[1vw] max-md:pt-[4vw] px-[2.5vw]">
           <p className="text-[1.8vw] leading-[1.1] max-md:text-[4.2vw] uppercase font-body opacity-80 text-center text-ink">
             <span className="hidden max-md:block mb-2">
-              Smashed patties · toasted buns · built by crazysmash.it
+              Smashed patties · toasted buns · built by orazen.online
             </span>
             <span className="md:hidden block">
               © 2026 Crazy Smash — All rights reserved
