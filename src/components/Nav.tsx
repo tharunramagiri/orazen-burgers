@@ -21,9 +21,13 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-modak hover:scale-105 transition-all duration-300 text-red [-webkit-text-stroke:clamp(1px,0.34vw,4px)_var(--color-white)] text-[4vw] max-md:text-[10vw] leading-none"
+          className="transition-transform duration-300 hover:scale-105"
         >
-          Crazy Smash
+          <img
+            src="/img/logo.png"
+            alt="Crazy Smash"
+            className="h-[5vw] w-auto max-md:h-[12vw] object-contain"
+          />
         </Link>
 
         <div className="flex items-center gap-[1vw] max-md:gap-[3vw]">
