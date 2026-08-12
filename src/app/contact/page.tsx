@@ -51,7 +51,7 @@ export default function ContactPage() {
 
       {/* ===== SHOP INFO CARDS ===== */}
       <section className="relative z-10 mx-auto -mt-[4vw] max-w-[1200px] px-[3vw]">
-        <div className="grid grid-cols-3 gap-[1.5vw] max-md:grid-cols-1 max-md:gap-[4vw]">
+        <div className="grid grid-cols-3 gap-[1.5vw] max-md:grid-cols-1 max-md:gap-[4vw] max-md:gap-[4vw]">
           {/* Hours */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}

@@ -10,7 +10,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-beige">
+    <footer className="relative w-full overflow-hidden bg-beige max-w-[100vw]">
       {/* Floating emoji layer - CSS animated */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
         <span className="absolute text-3xl animate-float-emoji" style={{ left: '10%', bottom: '20%', animationDelay: '0s' }}>🌶️</span>

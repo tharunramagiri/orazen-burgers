@@ -14,7 +14,7 @@ export default function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative h-screen w-full overflow-hidden pt-[8vw] max-md:h-[170vw] max-md:pt-[36vw]"
+      className="relative h-screen w-full overflow-hidden pt-[8vw] max-md:h-auto max-md:min-h-[170vw] max-md:pt-[36vw] max-md:pb-[8vw]"
     >
       {/* faint eyebrow — top-right */}
       <p className="absolute right-[3vw] top-[8vw] z-30 font-mouse-memoirs text-[.9vw] uppercase tracking-[.2em] text-black/40 max-md:text-[3.5vw]">
