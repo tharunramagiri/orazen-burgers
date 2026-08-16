@@ -13,7 +13,6 @@ interface Props {
   by?: 'word' | 'char'
   stagger?: number
   duration?: number
-  y?: number
   start?: string
 }
 
@@ -29,7 +28,6 @@ export default function RevealWords({
   by = 'word',
   stagger = 0.08,
   duration = 0.9,
-  y = 120,
   start = 'top 85%',
 }: Props) {
   const ref = useRef<HTMLElement>(null)

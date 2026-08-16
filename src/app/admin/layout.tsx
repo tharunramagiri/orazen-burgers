@@ -1,6 +1,7 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const ADMIN_PASSWORD = "crazysmash2026";
@@ -13,17 +14,19 @@ const navItems = [
   { href: "/admin/bookings", label: "Bookings", icon: "📅" },
 ];
 
+function checkStoredAuth(): boolean {
+  if (typeof window === "undefined") return false;
+  return sessionStorage.getItem("admin-auth") === ADMIN_PASSWORD;
+}
+
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const [authenticated, setAuthenticated] = useState(false);
+  // Lazy initializer reads sessionStorage once on mount, synchronously,
+  // instead of defaulting to false and correcting via a setState-in-effect.
+  const [authenticated, setAuthenticated] = useState(() => checkStoredAuth());
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const auth = sessionStorage.getItem("admin-auth");
-    if (auth === ADMIN_PASSWORD) setAuthenticated(true);
-  }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,8 +49,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="flex min-h-screen items-center justify-center bg-beige">
         <div className="w-full max-w-sm rounded-[2vw] border-2 border-ink bg-white p-[4vw] shadow-[0_15px_50px_rgba(0,0,0,0.15)] max-md:mx-4">
           <div className="text-center">
-            <div className="mx-auto w-16 h-16 animate-float">
-              <img src="/img/burger-boy.png" alt="Crazy Smash" className="w-full h-full object-contain" />
+            <div className="relative mx-auto h-16 w-16 animate-float">
+              <Image src="/img/burger-boy.png" alt="Crazy Smash" fill sizes="64px" className="object-contain" />
             </div>
             <h1 className="mt-4 font-modak text-[3vw] uppercase text-red max-md:text-[8vw]">Admin</h1>
             <p className="mt-1 font-body text-[.9vw] text-ink/40 max-md:text-[3.5vw]">Enter password to continue</p>

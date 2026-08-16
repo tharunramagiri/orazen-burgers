@@ -22,7 +22,7 @@ export default function AdminOverview() {
           <p className="font-body text-[.9vw] text-ink/50">Welcome back! Manage your burger shop.</p>
         </div>
         <a
-          href="https://burger.crazysmash.it"
+          href="https://burger.orazen.online"
           target="_blank"
           rel="noopener noreferrer"
           className="rounded-full bg-red px-[2vw] py-[.7vw] font-body text-[.9vw] font-bold uppercase text-white hover:bg-ink"

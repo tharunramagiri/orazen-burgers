@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Modak, Mouse_Memoirs } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Nav";
@@ -24,9 +24,10 @@ const mouseMemoirs = Mouse_Memoirs({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://burger.orazen.online"),
   title: "Crazy Smash — Schiacciato Fresco. Sapore Audace.",
   description:
-    "Smashed patties · toasted buns. 100% Organic. Zero Guilt. 📍 Caserta, Italia crazysmash.it.",
+    "Smashed patties · toasted buns, schiacciati sulla piastra ogni sera. 📍 A due passi dalla Reggia di Caserta.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -38,6 +39,9 @@ export const metadata: Metadata = {
     description: "Smashed for the bold, built for the hungry.",
     images: ["/img/real/double-smash-burger-fries-drink.jpg"],
   },
+};
+
+export const viewport: Viewport = {
   themeColor: "#f91814",
 };
 
@@ -47,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${modak.variable} ${mouseMemoirs.variable}`}>
+    <html lang="it" className={`${modak.variable} ${mouseMemoirs.variable}`}>
       <body>
         <LoadingScreen />
         <LanguageProvider>

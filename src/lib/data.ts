@@ -4,7 +4,7 @@ export const burgers: Burger[] = [
   {
     id: 1,
     name: 'Classic Burger',
-    price: 16,
+    price: 8,
     bun: 'Brioche',
     patty: 'Beef',
     spice: 'Mild',
@@ -17,7 +17,7 @@ export const burgers: Burger[] = [
   {
     id: 2,
     name: 'Spicy Jalapeño',
-    price: 18,
+    price: 9,
     bun: 'Brioche',
     patty: 'Beef',
     spice: 'Hot',
@@ -30,7 +30,7 @@ export const burgers: Burger[] = [
   {
     id: 3,
     name: 'Bacon Cheese Burger',
-    price: 21,
+    price: 10,
     bun: 'Brioche',
     patty: 'Beef',
     spice: 'Mild',
@@ -43,7 +43,7 @@ export const burgers: Burger[] = [
   {
     id: 4,
     name: 'Veggie Delight',
-    price: 15,
+    price: 8,
     bun: 'Sesame',
     patty: 'Veggie',
     spice: 'Mild',
@@ -56,7 +56,7 @@ export const burgers: Burger[] = [
   {
     id: 5,
     name: 'BBQ Ranch',
-    price: 19,
+    price: 9,
     bun: 'Brioche',
     patty: 'Beef',
     spice: 'Medium',
@@ -69,7 +69,7 @@ export const burgers: Burger[] = [
   {
     id: 6,
     name: 'Mushroom Swiss',
-    price: 20,
+    price: 9,
     bun: 'Brioche',
     patty: 'Beef',
     spice: 'Mild',
@@ -85,7 +85,7 @@ export const ingredients: Ingredient[] = [
   {
     id: 1,
     name: 'Freshly Greens',
-    description: 'Crisp lettuce sourced daily from local organic farms.',
+    description: 'Crisp lettuce, prepped fresh every day.',
     image: '/img-webp/lettuce.webp',
     number: '01',
   },

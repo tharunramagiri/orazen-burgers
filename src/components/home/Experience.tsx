@@ -67,7 +67,7 @@ export default function ExperienceSection() {
             transition={{ duration: 0.6 }}
             className="absolute bottom-[8vw] left-[4vw] z-10 w-[14vw] font-mouse-memoirs uppercase leading-[1.1] text-beige text40 max-md:static max-md:w-1/2"
           >
-            450 kcal High Protein Fresh Ingredients
+            Smashed Fresh Real Ingredients
           </motion.p>
 
           {/* right stat */}
@@ -78,7 +78,7 @@ export default function ExperienceSection() {
             transition={{ duration: 0.6 }}
             className="absolute bottom-[8vw] right-[4vw] z-10 w-[14vw] text-right font-mouse-memoirs uppercase leading-[1.1] text-beige text40 max-md:static max-md:w-1/2"
           >
-            100% Organic Zero Guilt True Taste
+            Made to Order True Taste
           </motion.p>
 
           {/* BOLD FLAVOUR sticker — bottom-right of the burger */}

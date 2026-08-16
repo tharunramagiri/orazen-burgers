@@ -53,7 +53,7 @@ export default function ShopAdmin() {
                 <label className="font-body text-[.75vw] font-bold uppercase text-ink/50">{label}</label>
                 <input
                   type="text"
-                  value={(shop as any)[key]}
+                  value={String(shop[key as keyof typeof shop])}
                   onChange={(e) => setShop((s) => ({ ...s, [key]: e.target.value }))}
                   className="mt-1 w-full rounded-[.5vw] border-2 border-ink/20 px-3 py-2 font-body text-[.85vw] text-ink"
                 />

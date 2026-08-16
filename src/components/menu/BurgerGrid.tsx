@@ -6,78 +6,60 @@ const burgers = [
   {
     id: 1,
     name: "Classic Burger",
-    price: 16,
+    price: 8,
     bun: "Brioche",
     patty: "Beef",
     spice: "Mild",
-    prepTime: "10–12 min",
-    calories: 720,
-    protein: 32,
     image: "/img/real/double-smash-burger-fries-drink.jpg",
     description: "The original Crazy Smash — perfectly seared patty, melted cheddar, crispy edges.",
   },
   {
     id: 2,
     name: "Spicy Jalapeño",
-    price: 18,
+    price: 9,
     bun: "Brioche",
     patty: "Beef",
     spice: "Hot",
-    prepTime: "12–14 min",
-    calories: 810,
-    protein: 34,
     image: "/img/real/chicken-burger-fanta-fries.jpg",
     description: "Jalapeños piccanti, formaggio fuso, maionese al chipotle su pan brioche tostato. Per chi ama il piccante!",
   },
   {
     id: 3,
     name: "Bacon Cheese Burger",
-    price: 21,
+    price: 10,
     bun: "Brioche",
     patty: "Beef",
     spice: "Mild",
-    prepTime: "12–15 min",
-    calories: 900,
-    protein: 37,
     image: "/img/real/burger-closeup-hands.jpg",
     description: "Doppio bacon croccante affumicato, doppio cheddar, cipolle caramellate e salsa BBQ affumicata.",
   },
   {
     id: 4,
     name: "Veggie Delight",
-    price: 15,
+    price: 8,
     bun: "Sesame",
     patty: "Veggie",
     spice: "Mild",
-    prepTime: "10–12 min",
-    calories: 620,
-    protein: 17,
     image: "/img/real/burger-cola-tray.jpg",
     description: "Burger vegetariano artigianale con verdure grigliate, crema di avocado ed erbe fresche.",
   },
   {
     id: 5,
     name: "BBQ Ranch",
-    price: 19,
+    price: 9,
     bun: "Brioche",
     patty: "Beef",
     spice: "Medium",
-    prepTime: "12–14 min",
-    calories: 870,
-    protein: 36,
     image: "/img/real/combo-tray-branded-wall.jpg",
     description: "Glassa BBQ affumicata, ranch della casa, cipolle croccanti e cheddar fuso.",
   },
   {
     id: 6,
     name: "Mushroom Swiss",
-    price: 20,
+    price: 9,
     bun: "Brioche",
     patty: "Beef",
     spice: "Mild",
-    prepTime: "12–14 min",
-    calories: 830,
-    protein: 33,
     image: "/img/real/double-burger-held-fries.jpg",
     description: "Funghi selvatici saltati, formaggio svizzero, aioli al tartufo e timo fresco.",
   },
@@ -114,6 +96,9 @@ export default function BurgerGrid() {
         >
           Our Finest Burger Picks
         </motion.h1>
+        <p className="mx-auto mt-[1vw] max-w-[560px] font-body text-[1vw] text-ink/50 max-md:text-[3.2vw]">
+          Prezzi indicativi — il menu completo e aggiornato è disponibile in loco.
+        </p>
       </div>
 
       {/* Cards grid */}
@@ -151,22 +136,16 @@ export default function BurgerGrid() {
                   {b.name}
                 </h3>
                 <span className="font-modak text-[2vw] text-ink max-md:text-[6vw]">
-                  ${b.price}
+                  &euro;{b.price}
                 </span>
               </div>
               <p className="mt-[.6vw] font-body text-[1.05vw] leading-[1.15] text-ink/70 max-md:text-[3.5vw]">
                 {b.description}
               </p>
               <div className="mt-[1vw] flex gap-[1.2vw] font-body text-[.95vw] uppercase text-ink/60 max-md:text-[3vw]">
-                <span>
-                  <strong className="text-ink">{b.calories}</strong> cal
-                </span>
-                <span>
-                  <strong className="text-ink">{b.protein}g</strong> protein
-                </span>
-                <span>
-                  <strong className="text-ink">{b.prepTime}</strong>
-                </span>
+                <span>{b.bun} bun</span>
+                <span>&middot;</span>
+                <span>{b.patty}</span>
               </div>
             </div>
           </motion.div>

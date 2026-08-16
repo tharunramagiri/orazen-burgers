@@ -1,13 +1,27 @@
 "use client";
 import { useState } from "react";
 
-const initialBurgers = [
-  { id: 1, name: "Classic Burger", price: 16, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "10–12 min", calories: 720, protein: 32, image: "/img/real/double-smash-burger-fries-drink.jpg", description: "The original Crazy Smash." },
-  { id: 2, name: "Spicy Jalapeño", price: 18, bun: "Brioche", patty: "Beef", spice: "Hot", prepTime: "12–14 min", calories: 810, protein: 34, image: "/img/real/chicken-burger-fanta-fries.jpg", description: "Fiery jalapeños, pepper jack." },
-  { id: 3, name: "Bacon Cheese Burger", price: 21, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "12–15 min", calories: 900, protein: 37, image: "/img/real/burger-closeup-hands.jpg", description: "Crispy smoked bacon, double cheddar." },
-  { id: 4, name: "Veggie Delight", price: 15, bun: "Sesame", patty: "Veggie", spice: "Mild", prepTime: "10–12 min", calories: 620, protein: 17, image: "/img/real/burger-cola-tray.jpg", description: "House-made veggie patty." },
-  { id: 5, name: "BBQ Ranch", price: 19, bun: "Brioche", patty: "Beef", spice: "Medium", prepTime: "12–14 min", calories: 870, protein: 36, image: "/img/real/combo-tray-branded-wall.jpg", description: "Smoky BBQ glaze, house ranch." },
-  { id: 6, name: "Mushroom Swiss", price: 20, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "12–14 min", calories: 830, protein: 33, image: "/img/real/double-burger-held-fries.jpg", description: "Sautéed wild mushrooms, Swiss." },
+type AdminBurger = {
+  id: number;
+  name: string;
+  price: number;
+  bun: string;
+  patty: string;
+  spice: string;
+  prepTime: string;
+  calories: number;
+  protein: number;
+  image: string;
+  description: string;
+};
+
+const initialBurgers: AdminBurger[] = [
+  { id: 1, name: "Classic Burger", price: 8, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "10–12 min", calories: 720, protein: 32, image: "/img/real/double-smash-burger-fries-drink.jpg", description: "The original Crazy Smash." },
+  { id: 2, name: "Spicy Jalapeño", price: 9, bun: "Brioche", patty: "Beef", spice: "Hot", prepTime: "12–14 min", calories: 810, protein: 34, image: "/img/real/chicken-burger-fanta-fries.jpg", description: "Fiery jalapeños, pepper jack." },
+  { id: 3, name: "Bacon Cheese Burger", price: 10, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "12–15 min", calories: 900, protein: 37, image: "/img/real/burger-closeup-hands.jpg", description: "Crispy smoked bacon, double cheddar." },
+  { id: 4, name: "Veggie Delight", price: 8, bun: "Sesame", patty: "Veggie", spice: "Mild", prepTime: "10–12 min", calories: 620, protein: 17, image: "/img/real/burger-cola-tray.jpg", description: "House-made veggie patty." },
+  { id: 5, name: "BBQ Ranch", price: 9, bun: "Brioche", patty: "Beef", spice: "Medium", prepTime: "12–14 min", calories: 870, protein: 36, image: "/img/real/combo-tray-branded-wall.jpg", description: "Smoky BBQ glaze, house ranch." },
+  { id: 6, name: "Mushroom Swiss", price: 9, bun: "Brioche", patty: "Beef", spice: "Mild", prepTime: "12–14 min", calories: 830, protein: 33, image: "/img/real/double-burger-held-fries.jpg", description: "Sautéed wild mushrooms, Swiss." },
 ];
 
 export default function MenuAdmin() {
@@ -62,7 +76,7 @@ export default function MenuAdmin() {
                 <span className="text-2xl">{burger.spice === "Hot" ? "🌶️" : burger.spice === "Medium" ? "🔥" : "🍔"}</span>
                 <div>
                   <h3 className="font-modak text-[1.5vw] uppercase text-ink">{burger.name}</h3>
-                  <p className="font-body text-[.8vw] text-ink/50">${burger.price} · {burger.calories} cal · {burger.protein}g protein</p>
+                  <p className="font-body text-[.8vw] text-ink/50">&euro;{burger.price} · {burger.calories} cal · {burger.protein}g protein</p>
                 </div>
               </div>
               <span className="font-body text-[.8vw] text-ink/30">{editingId === burger.id ? "▲" : "▼"}</span>
@@ -72,7 +86,7 @@ export default function MenuAdmin() {
               <div className="mt-4 grid grid-cols-2 gap-3 border-t border-ink/10 pt-4">
                 {[
                   { label: "Name", key: "name" },
-                  { label: "Price ($)", key: "price", type: "number" },
+                  { label: "Price (\u20ac)", key: "price", type: "number" },
                   { label: "Bun", key: "bun" },
                   { label: "Patty", key: "patty" },
                   { label: "Spice", key: "spice" },
@@ -85,7 +99,7 @@ export default function MenuAdmin() {
                     <label className="font-body text-[.7vw] font-bold uppercase text-ink/50">{label}</label>
                     <input
                       type={type}
-                      value={(burger as any)[key]}
+                      value={burger[key as keyof AdminBurger]}
                       onChange={(e) => updateBurger(burger.id, key, type === "number" ? Number(e.target.value) : e.target.value)}
                       className="mt-1 w-full rounded-[.4vw] border-2 border-ink/20 px-3 py-2 font-body text-[.8vw] text-ink"
                     />

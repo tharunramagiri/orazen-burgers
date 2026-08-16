@@ -1,12 +1,11 @@
 "use client";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import reelsData from "@/data/instagram-reels.json";
 
 export default function InstagramReels() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
@@ -60,12 +61,15 @@ export default function LoadingScreen() {
       {/* Spinning burger boy + text */}
       <div className="relative z-20 flex flex-col items-center justify-center">
         <div className="relative w-[140px] h-[140px] sm:w-[180px] sm:h-[180px] flex items-center justify-center">
-          <div className="animate-spin-slow">
-            <img
+          <div className="relative h-full w-full animate-spin-slow">
+            <Image
               src="/img/burger-boy.png"
               alt="Spinning Crazy Smash logo"
-              className="w-full h-full object-contain"
+              fill
+              sizes="180px"
+              className="object-contain"
               draggable={false}
+              priority
             />
           </div>
         </div>

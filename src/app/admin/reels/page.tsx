@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 import reelsData from "@/data/instagram-reels.json";
 
 export default function ReelsAdmin() {
@@ -55,7 +56,7 @@ export default function ReelsAdmin() {
         {reels.map((reel) => (
           <div key={reel.id} className="rounded-[1vw] border-2 border-ink/10 bg-white p-[1.5vw]">
             <div className="relative mb-3 aspect-[4/5] w-full overflow-hidden rounded-[.5vw] bg-beige">
-              <img src={reel.image} alt="" className="h-full w-full object-cover" />
+              <Image src={reel.image} alt="" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
               <button
                 onClick={() => removeReel(reel.id)}
                 className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-red text-xs font-bold text-white hover:bg-ink"
