@@ -85,7 +85,7 @@ export default function ContactPage() {
               {shop.address}
             </p>
             <p className="mt-2 font-body text-[.9vw] text-ink/70 max-md:text-[3vw]">
-              📞 <a href={`tel:${shop.phone}`} className="hover:text-red">{shop.phone}</a>
+              📞 <a href={`tel:${shop.phone.replace(/\s+/g, "")}`} className="hover:text-red">{shop.phone}</a>
             </p>
             <p className="mt-1 font-body text-[.9vw] text-ink/70 max-md:text-[3vw]">
               ✉️ <a href={`mailto:${shop.email}`} className="hover:text-red">{shop.email}</a>
