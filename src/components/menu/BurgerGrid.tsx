@@ -13,7 +13,7 @@ const burgers = [
     prepTime: "10–12 min",
     calories: 720,
     protein: 32,
-    image: "/img-webp/burgerH.webp",
+    image: "/img/real/double-smash-burger-fries-drink.jpg",
     description: "The original Crazy Smash — perfectly seared patty, melted cheddar, crispy edges.",
   },
   {
@@ -26,7 +26,7 @@ const burgers = [
     prepTime: "12–14 min",
     calories: 810,
     protein: 34,
-    image: "/img-webp/cheesyBurger.webp",
+    image: "/img/real/chicken-burger-fanta-fries.jpg",
     description: "Jalapeños piccanti, formaggio fuso, maionese al chipotle su pan brioche tostato. Per chi ama il piccante!",
   },
   {
@@ -39,7 +39,7 @@ const burgers = [
     prepTime: "12–15 min",
     calories: 900,
     protein: 37,
-    image: "/img-webp/burgerwithhands.webp",
+    image: "/img/real/burger-closeup-hands.jpg",
     description: "Doppio bacon croccante affumicato, doppio cheddar, cipolle caramellate e salsa BBQ affumicata.",
   },
   {
@@ -52,7 +52,7 @@ const burgers = [
     prepTime: "10–12 min",
     calories: 620,
     protein: 17,
-    image: "/img-webp/burgerH.webp",
+    image: "/img/real/burger-cola-tray.jpg",
     description: "Burger vegetariano artigianale con verdure grigliate, crema di avocado ed erbe fresche.",
   },
   {
@@ -65,7 +65,7 @@ const burgers = [
     prepTime: "12–14 min",
     calories: 870,
     protein: 36,
-    image: "/img-webp/cheesyBurger.webp",
+    image: "/img/real/combo-tray-branded-wall.jpg",
     description: "Glassa BBQ affumicata, ranch della casa, cipolle croccanti e cheddar fuso.",
   },
   {
@@ -78,7 +78,7 @@ const burgers = [
     prepTime: "12–14 min",
     calories: 830,
     protein: 33,
-    image: "/img-webp/burgerwithhands.webp",
+    image: "/img/real/double-burger-held-fries.jpg",
     description: "Funghi selvatici saltati, formaggio svizzero, aioli al tartufo e timo fresco.",
   },
 ];

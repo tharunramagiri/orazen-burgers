@@ -22,7 +22,7 @@ export default function ReelsAdmin() {
 
   const addReel = () => {
     const newId = Math.max(...reels.map((r) => r.id), 0) + 1;
-    setReels((prev) => [...prev, { id: newId, image: "/img-webp/about-1.webp", caption: "New reel", link: "https://instagram.com/crazysmash_caserta" }]);
+    setReels((prev) => [...prev, { id: newId, image: "/img/real/double-smash-burger-fries-drink.jpg", caption: "New reel", link: "https://instagram.com/crazysmash_caserta" }]);
   };
 
   const removeReel = (id: number) => {

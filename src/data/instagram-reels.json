@@ -2,38 +2,38 @@
   "reels": [
     {
       "id": 1,
-      "image": "/img-webp/about-1.webp",
-      "caption": "Smashed fresco ogni giorno \ud83c\udf54",
+      "image": "/img/real/double-smash-burger-fries-drink.jpg",
+      "caption": "Smashed fresco ogni giorno 🍔",
       "link": "https://instagram.com/crazysmash_caserta"
     },
     {
       "id": 2,
-      "image": "/img-webp/about-2.webp",
-      "caption": "Il formaggio che fila \ud83e\uddc0",
+      "image": "/img/real/burger-cola-tray.jpg",
+      "caption": "Il formaggio che fila 🧀",
       "link": "https://instagram.com/crazysmash_caserta"
     },
     {
       "id": 3,
-      "image": "/img-webp/about-3.webp",
-      "caption": "Vieni affamato, vai felice \ud83d\ude0b",
+      "image": "/img/real/customer-eating-burger.jpg",
+      "caption": "Vieni affamato, vai felice 😋",
       "link": "https://instagram.com/crazysmash_caserta"
     },
     {
       "id": 4,
-      "image": "/img-webp/burgerwithhands.webp",
-      "caption": "Doppio smash sabato \ud83d\udd25",
+      "image": "/img/real/burger-closeup-hands.jpg",
+      "caption": "Doppio smash sabato 🔥",
       "link": "https://instagram.com/crazysmash_caserta"
     },
     {
       "id": 5,
-      "image": "/img-webp/cheesyBurger.webp",
-      "caption": "Il Crazy Smash classico \ud83d\udcaf",
+      "image": "/img/real/chicken-burger-fanta-fries.jpg",
+      "caption": "Il Crazy Smash classico 💯",
       "link": "https://instagram.com/crazysmash_caserta"
     },
     {
       "id": 6,
-      "image": "/img-webp/cta.webp",
-      "caption": "Serata burger a lume di candela \ud83d\udd6f\ufe0f",
+      "image": "/img/real/combo-tray-branded-wall.jpg",
+      "caption": "A due passi dalla Reggia 🏰",
       "link": "https://instagram.com/crazysmash_caserta"
     }
   ]

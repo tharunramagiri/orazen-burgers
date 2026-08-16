@@ -3,18 +3,18 @@
     "name": "Crazy Smash Caserta",
     "tagline": "Schiacciato Fresco. Sapore Audace.",
     "logo": "/img/burger-boy.png",
-    "description": "Smashed hot on the flat top, topped with melted cheddar. Artisan burgers in the heart of Caserta.",
-    "phone": "+39 351 776 8419",
+    "description": "Lo smash più Crazy di Caserta. A due passi dalla Reggia — burger schiacciati sulla piastra, serviti caldi ogni sera.",
+    "phone": "+39 352 016 9828",
     "email": "info@crazysmash.it",
-    "address": "Via Giuseppe Verdi, 15, 81100 Caserta CE, Italia",
+    "address": "Via G.M. Bosca, 16, 81100 Caserta CE, Italia",
     "hours": {
-      "luned\u00ec": "12:00 - 15:00, 19:00 - 23:00",
-      "marted\u00ec": "12:00 - 15:00, 19:00 - 23:00",
-      "mercoled\u00ec": "12:00 - 15:00, 19:00 - 23:00",
-      "gioved\u00ec": "12:00 - 15:00, 19:00 - 23:00",
-      "venerd\u00ec": "12:00 - 15:00, 19:00 - 00:00",
-      "sabato": "12:00 - 00:00",
-      "domenica": "12:00 - 23:00"
+      "lunedì": "19:00 - 01:00",
+      "martedì": "19:00 - 01:00",
+      "mercoledì": "19:00 - 01:00",
+      "giovedì": "19:00 - 01:00",
+      "venerdì": "19:00 - 01:00",
+      "sabato": "19:00 - 01:00",
+      "domenica": "19:00 - 01:00"
     },
     "social": {
       "instagram": "https://instagram.com/crazysmash_caserta",
@@ -22,6 +22,6 @@
       "tiktok": "https://tiktok.com/@crazysmash_caserta",
       "tripadvisor": "https://www.tripadvisor.it/Restaurant_Review-g194713-d34411587-Reviews-Crazy_Smash_Caserta-Caserta_Province_of_Caserta_Campania.html"
     },
-    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.5!2d14.3333!3d41.0833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDA1JzAwLjAiTiAxNMKwMjAnMDAuMCJF!5e0!3m2!1sit!2sit!4v1"
+    "mapEmbed": "https://www.google.com/maps?q=Via+G.M.+Bosca+16+81100+Caserta+CE+Italy&output=embed"
   }
 }

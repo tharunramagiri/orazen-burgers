@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Crazy Smash — Schiacciato Fresco. Sapore Audace.",
     description: "Smashed for the bold, built for the hungry.",
-    images: ["/img-webp/burgerH.webp"],
+    images: ["/img/real/double-smash-burger-fries-drink.jpg"],
   },
   themeColor: "#f91814",
 };

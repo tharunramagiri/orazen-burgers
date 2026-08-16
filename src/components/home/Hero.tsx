@@ -66,7 +66,7 @@ export default function HeroSection() {
             transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
             className="h-full will-change-transform max-md:h-auto"
           >
-            <Image src="/img-webp/burgerH.webp" alt="Crazy Smash burger" width={700} height={700} className="h-full w-auto select-none rounded-[1.5vw] max-md:h-auto max-md:w-full" priority />
+            <Image src="/img/real/double-smash-burger-fries-drink.jpg" alt="Crazy Smash double smash burger with fries and drink" width={700} height={700} className="h-full w-auto select-none rounded-[1.5vw] max-md:h-auto max-md:w-full" priority />
           </motion.div>
         </motion.div>
       </motion.div>

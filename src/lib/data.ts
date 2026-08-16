@@ -1,4 +1,4 @@
-import { Burger, Ingredient, Location } from '@/types'
+import { Burger, Ingredient } from '@/types'
 
 export const burgers: Burger[] = [
   {
@@ -11,7 +11,7 @@ export const burgers: Burger[] = [
     prepTime: '10–12 min',
     calories: 720,
     protein: 32,
-    image: '/img-webp/burgerH.webp',
+    image: '/img/real/double-smash-burger-fries-drink.jpg',
     description: 'The original Crazy Smash — perfectly seared patty, melted cheddar, crispy edges.',
   },
   {
@@ -24,7 +24,7 @@ export const burgers: Burger[] = [
     prepTime: '12–14 min',
     calories: 810,
     protein: 34,
-    image: '/img-webp/cheesyBurger.webp',
+    image: '/img/real/chicken-burger-fanta-fries.jpg',
     description: 'Fiery jalapeños, pepper jack cheese, chipotle mayo on a toasted brioche.',
   },
   {
@@ -37,7 +37,7 @@ export const burgers: Burger[] = [
     prepTime: '12–15 min',
     calories: 900,
     protein: 37,
-    image: '/img-webp/burgerwithhands.webp',
+    image: '/img/real/burger-closeup-hands.jpg',
     description: 'Crispy smoked bacon, double cheddar, caramelized onions, smoky sauce.',
   },
   {
@@ -50,7 +50,7 @@ export const burgers: Burger[] = [
     prepTime: '10–12 min',
     calories: 620,
     protein: 17,
-    image: '/img-webp/burgerH.webp',
+    image: '/img/real/burger-cola-tray.jpg',
     description: 'House-made veggie patty, roasted peppers, avocado cream, micro herbs.',
   },
   {
@@ -63,7 +63,7 @@ export const burgers: Burger[] = [
     prepTime: '12–14 min',
     calories: 870,
     protein: 36,
-    image: '/img-webp/cheesyBurger.webp',
+    image: '/img/real/combo-tray-branded-wall.jpg',
     description: 'Smoky BBQ glaze, house ranch, crispy onion strings, cheddar.',
   },
   {
@@ -76,7 +76,7 @@ export const burgers: Burger[] = [
     prepTime: '12–14 min',
     calories: 830,
     protein: 33,
-    image: '/img-webp/burgerwithhands.webp',
+    image: '/img/real/double-burger-held-fries.jpg',
     description: 'Sautéed wild mushrooms, Swiss cheese, truffle aioli, fresh thyme.',
   },
 ]
@@ -114,15 +114,11 @@ export const ingredients: Ingredient[] = [
     id: 5,
     name: 'Artisan Bun',
     description: 'Soft, toasted buns crafted to hold everything together.',
-    image: '/img-webp/burgerH.webp',
+    image: '/img/real/burger-cola-tray.jpg',
     number: '05',
   },
 ]
 
-export const locations: Location[] = [
-  { city: 'Berlin', image: '/img-webp/berlin.webp' },
-  { city: 'London', image: '/img-webp/london.webp' },
-  { city: 'New York', image: '/img-webp/newyork.webp' },
-  { city: 'Sydney', image: '/img-webp/sydney.webp' },
-  { city: 'Tokyo', image: '/img-webp/tokyo.webp' },
-]
+// Note: the old five-city 'locations' export was removed — it belonged to the
+// original template's fictional international-shipping concept, which doesn't
+// apply to this single-location Caserta shop. See TakeAway.tsx for the real content.

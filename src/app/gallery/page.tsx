@@ -4,18 +4,14 @@ import { motion } from 'framer-motion';
 import { useLang } from '@/components/LanguageProvider';
 
 const galleryImages = [
-  { src: '/img-webp/about-1.webp', caption: 'Fresh smashed patty' },
-  { src: '/img-webp/about-2.webp', caption: 'Melted cheese perfection' },
-  { src: '/img-webp/about-3.webp', caption: 'Our cozy restaurant' },
-  { src: '/img-webp/burgerwithhands.webp', caption: 'Double smash burger' },
-  { src: '/img-webp/cheesyBurger.webp', caption: 'The Crazy Special' },
-  { src: '/img-webp/cta.webp', caption: 'Date night at Crazy Smash' },
-  { src: '/img-webp/burgerH.webp', caption: 'Smashed hot & fresh' },
-  { src: '/img-webp/fries.webp', caption: 'Crispy fries' },
-  { src: '/img-webp/lettuce.webp', caption: 'Fresh ingredients daily' },
-  { src: '/img-webp/tomato.webp', caption: 'Sun-ripened tomatoes' },
-  { src: '/img-webp/meat.webp', caption: 'Prime artisan beef' },
-  { src: '/img-webp/cheese.webp', caption: 'Premium cheddar' },
+  { src: '/img/real/double-smash-burger-fries-drink.jpg', caption: 'Smashed hot & fresh' },
+  { src: '/img/real/customer-eating-burger.jpg', caption: 'Lo smash che piace a tutti' },
+  { src: '/img/real/burger-closeup-hands.jpg', caption: 'Double smash burger' },
+  { src: '/img/real/combo-tray-branded-wall.jpg', caption: 'Ogni sera in piastra' },
+  { src: '/img/real/chicken-burger-fanta-fries.jpg', caption: 'Chicken burger & fries' },
+  { src: '/img/real/burger-cola-tray.jpg', caption: 'Pronto da gustare' },
+  { src: '/img/real/fried-chicken-bites-drink.jpg', caption: 'Crispy bites' },
+  { src: '/img/real/double-burger-held-fries.jpg', caption: 'Fresh ingredients daily' },
 ];
 
 export default function GalleryPage() {

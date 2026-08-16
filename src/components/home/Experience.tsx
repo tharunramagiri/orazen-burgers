@@ -94,8 +94,8 @@ export default function ExperienceSection() {
             className="relative z-10 w-[78vw] max-md:w-[95vw]"
           >
             <Image
-              src="/img-webp/burgerwithhands.webp"
-              alt="Crazy Smash burger with hands"
+              src="/img/real/burger-closeup-hands.jpg"
+              alt="Crazy Smash burger held close up"
               width={1200}
               height={900}
               className="h-auto w-full select-none"
@@ -110,8 +110,8 @@ export default function ExperienceSection() {
       {/* full-bleed burger band — measured: photo occupies ~1090px (≈76vw), cover-center crop */}
       <section className="relative h-[76vw] w-full overflow-hidden max-md:h-[100vw]">
         <Image
-          src="/img-webp/cheesyBurger.webp"
-          alt="Crazy Smash cheesy burger"
+          src="/img/real/customer-eating-burger.jpg"
+          alt="Customer enjoying a Crazy Smash burger"
           fill
           className="object-cover object-center"
           sizes="100vw"

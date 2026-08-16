@@ -6,9 +6,9 @@ import RevealWords from '@/components/RevealWords'
 import OrderButton from '@/components/OrderButton'
 
 const polaroids = [
-  { src: '/img-webp/about-1.webp', rot: '-4deg', top: '3vw', h: '27vw' },
-  { src: '/img-webp/about-2.webp', rot: '2deg', top: '-1vw', h: '30vw' },
-  { src: '/img-webp/about-3.webp', rot: '6deg', top: '4vw', h: '27vw' },
+  { src: '/img/real/customer-eating-burger.jpg', rot: '-4deg', top: '3vw', h: '27vw' },
+  { src: '/img/real/fried-chicken-bites-drink.jpg', rot: '2deg', top: '-1vw', h: '30vw' },
+  { src: '/img/real/burger-cola-tray.jpg', rot: '6deg', top: '4vw', h: '27vw' },
 ]
 
 export default function TopClassicSection() {

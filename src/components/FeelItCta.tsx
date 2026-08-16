@@ -39,7 +39,7 @@ export default function FeelTheChange() {
           transition={{ duration: 1 }}
           className="absolute right-0 top-[2vw] z-0 h-[58vw] w-[43vw] overflow-hidden rounded-[1vw] max-md:relative max-md:mt-[6vw] max-md:h-[90vw] max-md:w-full"
         >
-          <Image src="/img-webp/cta.webp" alt="Eating an Crazy Smash burger" fill className="object-cover" sizes="43vw" />
+          <Image src="/img/real/double-burger-held-fries.jpg" alt="Enjoying a Crazy Smash burger with fries" fill className="object-cover" sizes="43vw" />
         </motion.div>
 
         {/* Center illustration (burger-boy) — large, full height, head near top */}
